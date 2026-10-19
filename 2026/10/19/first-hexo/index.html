@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     
     
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
 
     
 <meta name="generator" content="Hexo 8.1.2"></head>
@@ -66,7 +68,7 @@
     </section>
 
     <section class="article">
-        <h1 id="大标题"><a href="#大标题" class="headerlink" title="大标题"></a>大标题</h1><p>![[PixPin_2026-10-19_16-47-39.png]]</p>
+        <h1 id="大标题"><a href="#大标题" class="headerlink" title="大标题"></a>大标题</h1><p><img src="/assets/PixPin_2026-10-19_16-47-39.png" alt="PixPin_2026-10-19_16-47-39.png"></p>
 <ul>
 <li>图片测试<br>$\alpha$<br>mathjax测试</li>
 </ul>
@@ -99,7 +101,7 @@
             <span class="bold">作者：</span><a href="mailto:751107781@qq.com" title="liwang he">liwang he</a>
         </div>
         <div class="post-cc-link">
-            <span class="bold">链接：</span><a href="/2026/10/19/first-hexo/">http://example.com/2026/10/19/first-hexo/</a>
+            <span class="bold">链接：</span><a href="/2026/10/19/first-hexo/">https://hlw-unique.github.io/2026/10/19/first-hexo/</a>
         </div>
         <div class="post-cc-source">
             <span class="bold">来源：</span><a href="/">liwang he's journals</a>
@@ -140,7 +142,7 @@
                 data-reactions-enabled="1"
                 data-emit-metadata="0"
                 data-input-position="top"
-                data-theme="https://cdn.jsdelivr.net/gh/can-dy-jack/giscus-theme-delicate@master/index.min.css"
+                data-theme="https://hlw-unique.github.io/css/giscus-delicate.css"
                 data-lang="en-US"
                 data-loading="lazy"
                 crossorigin="anonymous"
@@ -194,7 +196,18 @@
     </footer>
 
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- MathJax 配置：开启 $...$ 行内公式（默认只识别 \(...\)） -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true
+            },
+            "HTML-CSS": { availableFonts: ["TeX"], preferredFont: null },
+            showMathMenu: false
+        });
+    </script>
+    <script src="https://cdn.staticfile.org/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

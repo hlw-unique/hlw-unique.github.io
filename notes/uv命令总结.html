@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          uv命令总结 - liwang he&#39;s journals
+        
+    </title>
+    <meta name="description" content="welcome,get something and have fun here">
+
+    <!-- Spectre.css framework（本地 vendor，避免 CDN 失效） -->
+    <link rel="stylesheet" href="/vendor/spectre/spectre.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-exp.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-icons.min.css">
+
+    <!-- theme css -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+
+    <!-- 防止夜间模式闪烁：尽早设置 data-theme -->
+    <script>
+      (function () {
+        try {
+          var t = window.localStorage.getItem('theme');
+          if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) { /* ignore */ }
+      })();
+    </script>
+
+    <!-- tocbot（本地 vendor） -->
+    <script defer src="/vendor/tocbot/tocbot.min.js"></script>
+    <link rel="stylesheet" href="/vendor/tocbot/tocbot.css">
+
+    <!-- theme js -->
+    
+<script src="/js/book.js" defer></script>
+
+
+    <!-- MathJax 3：支持 $...$ 与 $$...$$
+         启用条件（任一满足）：
+           1. theme.mathjax_everywhere 为 true
+           2. 页面 front-matter 写 mathjax: true
+           3. 页面位于 theme.content_dirs 目录下（且 content_dirs_mathjax 未关闭） -->
+    
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        // 避免异步加载时因 tex 字体未就绪出现闪动
+        startup: {
+          typeset: true
+        }
+      };
+    </script>
+    <script id="MathJax-script" async
+      src="https://cdn.staticfile.org/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+    
+
+    
+
+    
+<script defer src="/vendor/zooming/zooming.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Zooming === 'undefined') return;
+    var zooming = new Zooming();
+    zooming.listen('.book-content img');
+  });
+</script>
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png" alt="">
+    <span>LIWANG HE&#39;S JOURNALS</span>
+  </a>
+</div>
+
+    <div id="menu" class="book-menu hide">
+  <!--
+  这是 book 主题的左侧菜单，直接写 Markdown 即可。
+  链接写到文章的永久地址（permalink），新增文章后在这里补一行。
+-->
+
+<ul>
+<li><a href="/">主页</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="/notes">笔记</a></li>
+<li><a href="/misc">其他</a></li>
+</ul>
+<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><ul>
+<li><a href="mailto:&#55;&#53;&#x31;&#49;&#48;&#55;&#55;&#x38;&#x31;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;">邮箱</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hlw-unique">github</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js" defer></script>
+
+
+  </div>
+
+  <div class="sidebar-toggle" data-action="toggle-sidebar" role="button" aria-label="Toggle sidebar">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a href="javascript:void(0)" data-action="open-sidebar" role="button" aria-label="Open menu">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <article id="page">
+  <h1 class="book-post-title">uv命令总结</h1>
+
+  <div class="book-post">
+    <p>#py</p>
+<p>[[python机器学习]]</p>
+<h2 id="一、项目初始化与结构"><a href="#一、项目初始化与结构" class="headerlink" title="一、项目初始化与结构"></a>一、项目初始化与结构</h2><p>uv init                        # 在当前目录创建新的 Python 项目（生成 pyproject.toml）<br>uv init –app                  # 创建应用程序项目（默认）<br>uv init –lib                  # 创建库项目（生成 src&#x2F; 布局）<br>uv init –name <NAME>          # 指定项目名称</p>
+<hr>
+<h2 id="二、虚拟环境管理"><a href="#二、虚拟环境管理" class="headerlink" title="二、虚拟环境管理"></a>二、虚拟环境管理</h2><p>uv venv                        # 创建 .venv 虚拟环境（当前目录）<br>uv venv &lt;路径&gt;                 # 指定环境创建位置<br>uv venv –python 3.12          # 指定 Python 版本创建环境<br>uv venv –seed                 # 创建环境时一并安装 pip&#x2F;setuptools</p>
+<p>uv python list                 # 列出所有可用的 Python 版本（已安装+可下载）<br>uv python install 3.12.5       # 安装指定 Python 版本（绕过系统包管理器）<br>uv python pin 3.12             # 锁定项目使用的 Python 版本（写入 .python-version）</p>
+<hr>
+<h2 id="三、依赖与包管理"><a href="#三、依赖与包管理" class="headerlink" title="三、依赖与包管理"></a>三、依赖与包管理</h2><p>uv add &lt;包名&gt;                  # 添加依赖并写入 pyproject.toml + 锁定 uv.lock<br>uv add –dev &lt;包名&gt;            # 添加开发依赖<br>uv add –optional &lt;包名&gt;       # 添加可选依赖组<br>uv add “requests&gt;&#x3D;2.28”        # 指定版本约束<br>uv add -r requirements.txt     # 从 requirements 文件批量添加</p>
+<p>uv remove &lt;包名&gt;               # 移除依赖并更新锁定文件</p>
+<p>uv sync                        # 根据 pyproject.toml 同步安装所有依赖（创建或更新环境）<br>uv sync –no-dev               # 不安装开发依赖<br>uv sync –extra &lt;组名&gt;         # 安装指定可选依赖组<br>uv sync –all-extras           # 安装所有可选依赖</p>
+<hr>
+<h2 id="四、运行与执行"><a href="#四、运行与执行" class="headerlink" title="四、运行与执行"></a>四、运行与执行</h2><p>uv run &lt;脚本&gt;                  # 在项目虚拟环境中运行 Python 脚本&#x2F;命令<br>uv run python                  # 启动项目环境的 Python REPL<br>uv run –script &lt;路径&gt;         # 运行指定脚本文件<br>uv run –with &lt;包&gt;             # 临时附加额外包运行（不修改项目）</p>
+<p>uv tool run &lt;工具名&gt;           # 运行一次性工具（类似 npx），如 uv tool run ruff check .</p>
+<hr>
+<h2 id="五、依赖解析与锁定"><a href="#五、依赖解析与锁定" class="headerlink" title="五、依赖解析与锁定"></a>五、依赖解析与锁定</h2><p>uv lock                        # 生成&#x2F;更新 uv.lock 锁定所有依赖的精确版本<br>uv lock –upgrade              # 升级所有依赖到符合约束的最新版本<br>uv lock –upgrade-package &lt;包&gt; # 仅升级指定包</p>
+<p>uv tree                        # 以树形展示当前项目依赖关系<br>uv tree –depth 2              # 限制显示层级<br>uv tree –outdated             # 高亮显示有更新的包</p>
+<hr>
+<h2 id="六、Python-包发布（PyPI）"><a href="#六、Python-包发布（PyPI）" class="headerlink" title="六、Python 包发布（PyPI）"></a>六、Python 包发布（PyPI）</h2><p>uv build                       # 构建分发包（源码包 .tar.gz 和 wheel .whl）<br>uv build –sdist               # 仅构建源码包<br>uv build –wheel               # 仅构建 wheel</p>
+<p>uv publish                     # 发布当前项目到 PyPI（需先 build）<br>uv publish –token <TOKEN>     # 使用 API token<br>uv publish –publish-url <URL> # 发布到私有仓库（如 GitLab）</p>
+<hr>
+<h2 id="七、工具与脚本隔离（类似-pipx）"><a href="#七、工具与脚本隔离（类似-pipx）" class="headerlink" title="七、工具与脚本隔离（类似 pipx）"></a>七、工具与脚本隔离（类似 pipx）</h2><p>uv tool install &lt;工具名&gt;       # 安装全局命令行工具（如 ruff, black）<br>uv tool install ruff –python 3.12<br>uv tool uninstall &lt;工具名&gt;<br>uv tool list                   # 列出已安装工具<br>uv tool run &lt;工具名&gt;           # 运行工具但不永久安装（临时执行）</p>
+<p>uv script &lt;文件.py&gt;            # 直接运行单一 Python 文件，自动解析其依赖（PEP 723）<br>uv script –python 3.11 &lt;文件&gt; # 指定 Python 版本运行脚本</p>
+<hr>
+<h2 id="八、兼容与迁移"><a href="#八、兼容与迁移" class="headerlink" title="八、兼容与迁移"></a>八、兼容与迁移</h2><p>uv pip install &lt;包&gt;            # 兼容 pip 风格安装（但仍使用 uv 的 resolver）<br>uv pip list                    # 显示当前环境的包列表<br>uv pip freeze                  # 输出 requirements 格式<br>uv pip compile requirements.in # 生成锁定的 requirements.txt（类似 pip-tools）<br>uv pip sync requirements.txt   # 同步环境至 requirements 精确内容</p>
+<p>uvx                            # 等同于 uv tool run（简写别名）</p>
+<hr>
+<h2 id="九、管理命令"><a href="#九、管理命令" class="headerlink" title="九、管理命令"></a>九、管理命令</h2><p>uv cache clean                 # 清理所有下载的缓存（包文件、Python 版本）<br>uv cache clean &lt;包名&gt;          # 清理特定包的缓存<br>uv cache dir                   # 显示缓存目录路径</p>
+<p>uv self update                 # 更新 uv 自身到最新版本<br>uv self uninstall              # 卸载 uv（删除自身二进制）</p>
+<hr>
+<h2 id="十、常用组合示例"><a href="#十、常用组合示例" class="headerlink" title="十、常用组合示例"></a>十、常用组合示例</h2><ul>
+<li><p>创建新项目并安装依赖<br>uv init myproject &amp;&amp; cd myproject<br>uv add fastapi uvicorn<br>uv add –dev pytest<br>uv sync</p>
+</li>
+<li><p>运行开发服务器<br>uv run uvicorn main:app –reload</p>
+</li>
+<li><p>运行测试<br>uv run pytest</p>
+</li>
+<li><p>升级所有依赖<br>uv lock –upgrade &amp;&amp; uv sync</p>
+</li>
+<li><p>发布包<br>uv build &amp;&amp; uv publish</p>
+</li>
+</ul>
+<hr>
+<p>所有子命令均支持 <code>--help</code> 获取详细参数。</p>
+
+  </div>
+</article>
+
+
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+
+  <div class="book-tocbot"></div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" data-action="expand-toc" role="button">Expand all</a>
+  <a data-action="go-top" role="button">Back to top</a>
+  <a data-action="go-bottom" role="button">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js" defer></script>
+
+
+
+  <span class="book-mode-toggle" data-action="toggle-theme" role="button" aria-label="Toggle dark mode">
+  <span class="mode-label mode-label-night">Dark</span>
+  <span class="mode-label mode-label-day">Light</span>
+</span>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <a class="off-canvas-overlay" data-action="close-sidebar" role="button" aria-label="Close menu"></a>
+</div>
+
+</body>
+</html>

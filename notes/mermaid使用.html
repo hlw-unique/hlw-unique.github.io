@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          mermaid使用 - liwang he&#39;s journals
+        
+    </title>
+    <meta name="description" content="welcome,get something and have fun here">
+
+    <!-- Spectre.css framework（本地 vendor，避免 CDN 失效） -->
+    <link rel="stylesheet" href="/vendor/spectre/spectre.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-exp.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-icons.min.css">
+
+    <!-- theme css -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+
+    <!-- 防止夜间模式闪烁：尽早设置 data-theme -->
+    <script>
+      (function () {
+        try {
+          var t = window.localStorage.getItem('theme');
+          if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) { /* ignore */ }
+      })();
+    </script>
+
+    <!-- tocbot（本地 vendor） -->
+    <script defer src="/vendor/tocbot/tocbot.min.js"></script>
+    <link rel="stylesheet" href="/vendor/tocbot/tocbot.css">
+
+    <!-- theme js -->
+    
+<script src="/js/book.js" defer></script>
+
+
+    <!-- MathJax 3：支持 $...$ 与 $$...$$
+         启用条件（任一满足）：
+           1. theme.mathjax_everywhere 为 true
+           2. 页面 front-matter 写 mathjax: true
+           3. 页面位于 theme.content_dirs 目录下（且 content_dirs_mathjax 未关闭） -->
+    
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        // 避免异步加载时因 tex 字体未就绪出现闪动
+        startup: {
+          typeset: true
+        }
+      };
+    </script>
+    <script id="MathJax-script" async
+      src="https://cdn.staticfile.org/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+    
+
+    
+
+    
+<script defer src="/vendor/zooming/zooming.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Zooming === 'undefined') return;
+    var zooming = new Zooming();
+    zooming.listen('.book-content img');
+  });
+</script>
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png" alt="">
+    <span>LIWANG HE&#39;S JOURNALS</span>
+  </a>
+</div>
+
+    <div id="menu" class="book-menu hide">
+  <!--
+  这是 book 主题的左侧菜单，直接写 Markdown 即可。
+  链接写到文章的永久地址（permalink），新增文章后在这里补一行。
+-->
+
+<ul>
+<li><a href="/">主页</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="/notes">笔记</a></li>
+<li><a href="/misc">其他</a></li>
+</ul>
+<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><ul>
+<li><a href="mailto:&#55;&#53;&#x31;&#49;&#48;&#55;&#55;&#x38;&#x31;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;">邮箱</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hlw-unique">github</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js" defer></script>
+
+
+  </div>
+
+  <div class="sidebar-toggle" data-action="toggle-sidebar" role="button" aria-label="Toggle sidebar">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a href="javascript:void(0)" data-action="open-sidebar" role="button" aria-label="Open menu">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <article id="page">
+  <h1 class="book-post-title">mermaid使用</h1>
+
+  <div class="book-post">
+    <p>Mermaid 是一种基于 JavaScript 的绘图工具，让你能用类似 Markdown 的文本语法来生成图表，在 GitHub、GitLab、Notion 等平台都能直接渲染。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>在 Markdown 中用 <code>mermaid` 和 </code> &#96; 包裹代码块，第一行声明图表类型：</p>
+<figure class="book-mermaid pele-diagram"><svg xmlns="http://www.w3.org/2000/svg" class="pele pele-flowchart" viewBox="0 0 406 152" width="406" height="152" style="max-width:100%;height:auto;--_bg:var(--pele-bg,#fff);--_fg:var(--pele-fg,#1f1f1f);--_m:var(--pele-muted,#6e6e6e);--_l:var(--pele-line,#1f1f1f);--_s:var(--pele-surface,#f3f3f3);--_a:var(--pele-surface-alt,#e6e6e6);--_b:var(--pele-border,#8a8a8a);--_c:var(--pele-accent,#5b7bd5);color:var(--_fg);--_r:var(--pele-radius,4px);--_fm:var(--pele-font-mono,monospace);font:16px sans-serif;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;font-family:var(--pele-font,sans-serif)" fill="var(--_fg)" role="graphics-document document" aria-roledescription="flowchart"><g class="pele-edges" fill="none" stroke="var(--_l)" stroke-linecap="round"><g class="pele-edge" data-id="L_A_B_0"><path d="M76,76L117,76"/><path class="pele-marker" d="M124,76L116,79.36L116,72.64Z" fill="var(--_l)" stroke="none"/></g><g class="pele-edge" data-id="L_B_C_0"><path d="M210.4,68C227.05,68 227.05,32 243.7,32L290.2,32"/><path class="pele-marker" d="M297.2,32L289.2,35.36L289.2,28.64Z" fill="var(--_l)" stroke="none"/></g><g class="pele-edge" data-id="L_B_D_0"><path d="M210.4,84C227.05,84 227.05,120 243.7,120L290.2,120"/><path class="pele-marker" d="M297.2,120L289.2,123.36L289.2,116.64Z" fill="var(--_l)" stroke="none"/></g></g><g class="pele-edge-labels" font-size="14"><g class="pele-edge-label" data-id="L_B_C_0"><rect x="245.7" y="21.5" width="22" height="21" rx="3" fill="var(--_bg)"/><text x="256.7" y="36.9" text-anchor="middle">是</text></g><g class="pele-edge-label" data-id="L_B_D_0"><rect x="245.7" y="109.5" width="22" height="21" rx="3" fill="var(--_bg)"/><text x="256.7" y="124.9" text-anchor="middle">否</text></g></g><g class="pele-nodes"><g class="pele-node pele-shape-rect" data-id="A" transform="translate(42,76)"><rect x="-34" y="-24" width="68" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"/><text class="pele-label" x="0" y="5.6" text-anchor="middle">开始</text></g><g class="pele-node pele-shape-diam" data-id="B" transform="translate(173.6,76)"><polygon points="0,-31 49.6,0 0,31 -49.6,0" fill="var(--_s)" stroke="var(--_b)"/><text class="pele-label" x="0" y="5.6" text-anchor="middle">判断</text></g><g class="pele-node pele-shape-rect" data-id="C" transform="translate(347.2,32)"><rect x="-50" y="-24" width="100" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"/><text class="pele-label" x="0" y="5.6" text-anchor="middle">执行操作</text></g><g class="pele-node pele-shape-rect" data-id="D" transform="translate(331.2,120)"><rect x="-34" y="-24" width="68" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"/><text class="pele-label" x="0" y="5.6" text-anchor="middle">结束</text></g></g></svg><details class="book-mermaid-source"><summary>Mermaid source</summary><pre><code class="language-mermaid">flowchart LR
+    A[开始] --&gt; B{判断}
+    B --&gt;|是| C[执行操作]
+    B --&gt;|否| D[结束]</code></pre></details></figure>
+
+<h3 id="常用图表类型与核心语法"><a href="#常用图表类型与核心语法" class="headerlink" title="常用图表类型与核心语法"></a>常用图表类型与核心语法</h3><p><strong>流程图（Flowchart）</strong>：最常用，用 <code>graph</code> 或 <code>flowchart</code> 声明，方向有 <code>TD</code>（上到下）、<code>LR</code>（左到右）等。</p>
+<ul>
+<li>节点形状：<code>[矩形]</code>、<code>(圆角)</code>、<code>{菱形}</code>、<code>((圆形))</code>、<code>[(圆柱)]</code></li>
+<li>连线：<code>--&gt;</code> 实线、<code>-.-&gt;</code> 虚线、<code>==&gt;</code> 粗线，可加文字如 <code>-- 文字 --&gt;</code></li>
+</ul>
+<p><strong>时序图（Sequence Diagram）</strong>：用 <code>sequenceDiagram</code> 声明，参与者用 <code>participant A as 张三</code> 定义别名，消息用 <code>A-&gt;&gt;B: 消息内容</code>。</p>
+<ul>
+<li>支持 <code>loop</code>、<code>alt/else</code>、<code>par</code> 等控制结构</li>
+</ul>
+<p><strong>饼图（Pie Chart）</strong>：用 <code>pie</code> 声明，<code>&quot;标签&quot; : 数值</code> 格式，数值必须是正数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pie title 项目占比</span><br><span class="line">    &quot;A&quot; : 40</span><br><span class="line">    &quot;B&quot; : 35</span><br><span class="line">    &quot;C&quot; : 25</span><br></pre></td></tr></table></figure>
+
+<p><strong>类图（Class Diagram）</strong>：用 <code>classDiagram</code> 声明，关系包括 <code>&lt;|--</code> 继承、<code>*--</code> 组合、<code>o--</code> 聚合、<code>--&gt;</code> 关联。</p>
+<p><strong>状态图（State Diagram）</strong>：用 <code>stateDiagram-v2</code> 声明，<code>[*]</code> 表示起点&#x2F;终点，<code>--&gt;</code> 表示状态转移。</p>
+<p><strong>甘特图（Gantt）</strong>：用 <code>gantt</code> 声明，任务格式 <code>任务名 :a1, 起始日期, 持续时长</code>，支持 <code>done</code>、<code>active</code>、<code>crit</code> 等状态标记。</p>
+<h3 id="其他类型"><a href="#其他类型" class="headerlink" title="其他类型"></a>其他类型</h3><p>还有 <strong>时间线（Timeline）</strong>、<strong>思维导图（Mindmap）</strong>、<strong>象限图（Quadrant）</strong>、<strong>ER 图</strong>、<strong>需求图</strong>、<strong>C4 架构图</strong> 等，语法风格类似。</p>
+<p>需要我展开讲哪种图的具体用法吗？</p>
+
+  </div>
+</article>
+
+
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+
+  <div class="book-tocbot"></div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" data-action="expand-toc" role="button">Expand all</a>
+  <a data-action="go-top" role="button">Back to top</a>
+  <a data-action="go-bottom" role="button">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js" defer></script>
+
+
+
+  <span class="book-mode-toggle" data-action="toggle-theme" role="button" aria-label="Toggle dark mode">
+  <span class="mode-label mode-label-night">Dark</span>
+  <span class="mode-label mode-label-day">Light</span>
+</span>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <a class="off-canvas-overlay" data-action="close-sidebar" role="button" aria-label="Close menu"></a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          计算机图形学 - liwang he&#39;s journals
+        
+    </title>
+    <meta name="description" content="welcome,get something and have fun here">
+
+    <!-- Spectre.css framework（本地 vendor，避免 CDN 失效） -->
+    <link rel="stylesheet" href="/vendor/spectre/spectre.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-exp.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-icons.min.css">
+
+    <!-- theme css -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+
+    <!-- 防止夜间模式闪烁：尽早设置 data-theme -->
+    <script>
+      (function () {
+        try {
+          var t = window.localStorage.getItem('theme');
+          if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) { /* ignore */ }
+      })();
+    </script>
+
+    <!-- tocbot（本地 vendor） -->
+    <script defer src="/vendor/tocbot/tocbot.min.js"></script>
+    <link rel="stylesheet" href="/vendor/tocbot/tocbot.css">
+
+    <!-- theme js -->
+    
+<script src="/js/book.js" defer></script>
+
+
+    <!-- MathJax 3：支持 $...$ 与 $$...$$
+         启用条件（任一满足）：
+           1. theme.mathjax_everywhere 为 true
+           2. 页面 front-matter 写 mathjax: true
+           3. 页面位于 theme.content_dirs 目录下（且 content_dirs_mathjax 未关闭） -->
+    
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        // 避免异步加载时因 tex 字体未就绪出现闪动
+        startup: {
+          typeset: true
+        }
+      };
+    </script>
+    <script id="MathJax-script" async
+      src="https://cdn.staticfile.org/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+    
+
+    
+
+    
+<script defer src="/vendor/zooming/zooming.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Zooming === 'undefined') return;
+    var zooming = new Zooming();
+    zooming.listen('.book-content img');
+  });
+</script>
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png" alt="">
+    <span>LIWANG HE&#39;S JOURNALS</span>
+  </a>
+</div>
+
+    <div id="menu" class="book-menu hide">
+  <!--
+  这是 book 主题的左侧菜单，直接写 Markdown 即可。
+  链接写到文章的永久地址（permalink），新增文章后在这里补一行。
+-->
+
+<ul>
+<li><a href="/">主页</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="/notes">笔记</a></li>
+<li><a href="/misc">其他</a></li>
+</ul>
+<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><ul>
+<li><a href="mailto:&#55;&#53;&#x31;&#49;&#48;&#55;&#55;&#x38;&#x31;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;">邮箱</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hlw-unique">github</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js" defer></script>
+
+
+  </div>
+
+  <div class="sidebar-toggle" data-action="toggle-sidebar" role="button" aria-label="Toggle sidebar">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a href="javascript:void(0)" data-action="open-sidebar" role="button" aria-label="Open menu">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <article id="page">
+  <h1 class="book-post-title">计算机图形学</h1>
+
+  <div class="book-post">
+    <h2 id="2026-09-28"><a href="#2026-09-28" class="headerlink" title="2026-09-28"></a>2026-09-28</h2><p>CG：用电脑实现图形的表示、生成、处理、展示</p>
+<p>几何要素：point line face</p>
+<p>非几何要素：texture color lighting</p>
+<p>图形表示法：点阵 参数</p>
+<ul>
+<li>光栅图形学</li>
+<li>真实感图形学</li>
+</ul>
+<p>前沿：</p>
+<ul>
+<li>粒子系统 particle system</li>
+<li>与网络技术结合 远程医疗</li>
+<li>输入设备</li>
+<li>输出设备</li>
+</ul>
+<p>CRT原理：电子枪-电磁场偏转-荧光屏(加速 聚焦 偏转)</p>
+<p>彩色CRT: 荫罩板-三色荧光屏-三个电子枪</p>
+<h2 id="2026-09-29"><a href="#2026-09-29" class="headerlink" title="2026-09-29"></a>2026-09-29</h2><p>24位真彩色：$2^{24}&#x3D;256^3$</p>
+<p>扫描方式:</p>
+<ul>
+<li>行扫描:一行</li>
+<li>场扫描:刷新率&#x2F;刷新率</li>
+</ul>
+<ol>
+<li>光栅扫描(点)</li>
+<li>随机扫描&#x2F;笔画扫描(矢量)</li>
+</ol>
+<p>平板显示器</p>
+<ul>
+<li>发射型:LED 等离子体显示器</li>
+<li>非发射型:LCD 液晶</li>
+</ul>
+<p>3D显示器…</p>
+<p>颜色查找表: 省内存</p>
+<h2 id="2026-10-12"><a href="#2026-10-12" class="headerlink" title="2026-10-12"></a>2026-10-12</h2><p>分辨率种类:<code>存储&gt;屏幕&gt;显示</code></p>
+<ol>
+<li>屏幕(物理)分辨率</li>
+<li>显示分辨率</li>
+<li>存储分辨率(大于显示分辨率)</li>
+</ol>
+<p>用户界面 user interface </p>
+<ul>
+<li>用户模型 user model</li>
+<li>GUI</li>
+<li>联机帮助 online help</li>
+<li>视觉效果设计</li>
+</ul>
+<p>逻辑输入设备:</p>
+<ul>
+<li>定位 笔画 字符 数字 选择 拾取</li>
+</ul>
+<p>输入模式</p>
+<ul>
+<li>请求方式 采样方式 事件方式  组合方式</li>
+</ul>
+<p>交互绘图技术</p>
+<ul>
+<li>网格 吸附</li>
+</ul>
+<p>3维交互技术(new: 深度)</p>
+<h3 id="图形表示与建模"><a href="#图形表示与建模" class="headerlink" title="图形表示与建模"></a>图形表示与建模</h3><p>造型技术</p>
+<ul>
+<li>规则对象(可以用欧式几何描述) -&gt; 几何模型</li>
+<li>不规则对象</li>
+</ul>
+<p>图形对象包含</p>
+<ul>
+<li>图形信息: 几何信息 拓扑信息</li>
+<li>非图形信息: 颜色 纹理…</li>
+</ul>
+<p>基本图形元素</p>
+<ul>
+<li>体 body</li>
+<li>面 face</li>
+<li>环 loop </li>
+<li>边 edge</li>
+<li>顶点 vertex</li>
+</ul>
+<p>坐标系</p>
+<ul>
+<li>建模..modeling..局部</li>
+<li>用户..world..全局&#x2F;世界</li>
+<li>观察..viewing</li>
+<li>规格化设备..normalized device</li>
+<li>设备..device</li>
+</ul>
+<p>实体: 三维空间的物体是<em><strong>内部连通的三维点集</strong></em></p>
+<ul>
+<li>刚性 维数的一致性 占据有限的体积 确定的边界 封闭性</li>
+</ul>
+<p>实体: <em><strong>正则形体+表面是2维流形</strong></em></p>
+<p>正则: 先取内点再取闭包</p>
+<p>二维流形: 取一点 其附近的区域可以等效为一个圆盘(而不是多个)</p>
+<h2 id="2026-10-19"><a href="#2026-10-19" class="headerlink" title="2026-10-19"></a>2026-10-19</h2><p>三维形体的表示:</p>
+<ul>
+<li>边界表示</li>
+<li>构造实体</li>
+<li>空间分割</li>
+</ul>
+<ol>
+<li>边界表示法:</li>
+</ol>
+<ul>
+<li>多边形网格(三角形 四边形)</li>
+<li>扫描(掠)表示</li>
+</ul>
+<ol>
+<li>构造实体几何法(CSG),<br> 求并集 交集…  表达方式不唯一,顺序不同…</li>
+</ol>
+<ul>
+<li>CSG树&#x2F;二叉树</li>
+</ul>
+<ol start="3">
+<li>空间分割</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 空间枚举: P[i][j][k]表示空间上一个点 ...三维数组</span><br></pre></td></tr></table></figure>
+<ul>
+<li>八叉树: 自适应</li>
+<li>二叉树</li>
+<li>BSP树</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+
+  <div class="book-tocbot"></div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" data-action="expand-toc" role="button">Expand all</a>
+  <a data-action="go-top" role="button">Back to top</a>
+  <a data-action="go-bottom" role="button">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js" defer></script>
+
+
+
+  <span class="book-mode-toggle" data-action="toggle-theme" role="button" aria-label="Toggle dark mode">
+  <span class="mode-label mode-label-night">Dark</span>
+  <span class="mode-label mode-label-day">Light</span>
+</span>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <a class="off-canvas-overlay" data-action="close-sidebar" role="button" aria-label="Close menu"></a>
+</div>
+
+</body>
+</html>

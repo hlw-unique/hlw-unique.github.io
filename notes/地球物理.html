@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          地球物理 - liwang he&#39;s journals
+        
+    </title>
+    <meta name="description" content="welcome,get something and have fun here">
+
+    <!-- Spectre.css framework（本地 vendor，避免 CDN 失效） -->
+    <link rel="stylesheet" href="/vendor/spectre/spectre.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-exp.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-icons.min.css">
+
+    <!-- theme css -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+
+    <!-- 防止夜间模式闪烁：尽早设置 data-theme -->
+    <script>
+      (function () {
+        try {
+          var t = window.localStorage.getItem('theme');
+          if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) { /* ignore */ }
+      })();
+    </script>
+
+    <!-- tocbot（本地 vendor） -->
+    <script defer src="/vendor/tocbot/tocbot.min.js"></script>
+    <link rel="stylesheet" href="/vendor/tocbot/tocbot.css">
+
+    <!-- theme js -->
+    
+<script src="/js/book.js" defer></script>
+
+
+    <!-- MathJax 3：支持 $...$ 与 $$...$$
+         启用条件（任一满足）：
+           1. theme.mathjax_everywhere 为 true
+           2. 页面 front-matter 写 mathjax: true
+           3. 页面位于 theme.content_dirs 目录下（且 content_dirs_mathjax 未关闭） -->
+    
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        // 避免异步加载时因 tex 字体未就绪出现闪动
+        startup: {
+          typeset: true
+        }
+      };
+    </script>
+    <script id="MathJax-script" async
+      src="https://cdn.staticfile.org/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+    
+
+    
+
+    
+<script defer src="/vendor/zooming/zooming.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Zooming === 'undefined') return;
+    var zooming = new Zooming();
+    zooming.listen('.book-content img');
+  });
+</script>
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png" alt="">
+    <span>LIWANG HE&#39;S JOURNALS</span>
+  </a>
+</div>
+
+    <div id="menu" class="book-menu hide">
+  <!--
+  这是 book 主题的左侧菜单，直接写 Markdown 即可。
+  链接写到文章的永久地址（permalink），新增文章后在这里补一行。
+-->
+
+<ul>
+<li><a href="/">主页</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="/notes">笔记</a></li>
+<li><a href="/misc">其他</a></li>
+</ul>
+<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><ul>
+<li><a href="mailto:&#55;&#53;&#x31;&#49;&#48;&#55;&#55;&#x38;&#x31;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;">邮箱</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hlw-unique">github</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js" defer></script>
+
+
+  </div>
+
+  <div class="sidebar-toggle" data-action="toggle-sidebar" role="button" aria-label="Toggle sidebar">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a href="javascript:void(0)" data-action="open-sidebar" role="button" aria-label="Open menu">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <article id="page">
+  <h1 class="book-post-title">地球物理</h1>
+
+  <div class="book-post">
+    <h2 id="2026-09-29"><a href="#2026-09-29" class="headerlink" title="2026-09-29"></a>2026-09-29</h2><p>重力勘探:用物体密度差异导致的重力异常来进行勘探, 利用物理原理和专用仪器, 通过观察重力场的变化来查明地质构造和矿产资源.</p>
+<p>参考面</p>
+<ol>
+<li><p>大地水准面:静止海水向大陆延伸(不规则曲面)</p>
+</li>
+<li><p>重力等位面:重力不做功</p>
+</li>
+<li><p>参考椭球面:一个拟合方程</p>
+</li>
+</ol>
+<p>应用:找矿油气 工程检测 &#x3D;&#x3D;军事导弹&#x3D;&#x3D; 惯导 地下构造</p>
+<p><code>布格重力异常</code></p>
+<p>$\sigma$</p>
+<p>向心力(很小)+引力(mainly地球)&#x3D;&#x3D;&#x3D;重力&#x3D;&#x3D;–&gt;地球引力&#x3D;重力</p>
+<p>重力加速度单位</p>
+<ul>
+<li><p>(CGS制): 伽(Gal)&#x3D;<mark>cm</mark>&#x2F;s^2</p>
+</li>
+<li><p>(SI制): g.u.</p>
+</li>
+</ul>
+<p>引力位V:</p>
+<p>$\vec{F}&#x3D;\nabla V$</p>
+<p>$\int^P_{P_0}\vec{F}\cdot\mathrm{d}\vec{l}&#x3D;V(P)-V(P_0)$</p>
+<p>引力场有源无旋:</p>
+<p>$\nabla\cdot\vec{F}&#x3D;-4\pi G\rho$</p>
+<p>$\nabla\times\vec{F}&#x3D;0$</p>
+<p>$\nabla^2V&#x3D;\nabla\cdot(\nabla V)&#x3D;\nabla\cdot F&#x3D;-4\pi G\rho$</p>
+<p>泊松方程-&gt;拉普拉斯方程</p>
+<h2 id="2026-10-09"><a href="#2026-10-09" class="headerlink" title="2026-10-09"></a>2026-10-09</h2><p>正常重力场:参考椭球体的重力(包含离心力), 不包含地形等因素</p>
+<p>重力值&#x3D;</p>
+<ul>
+<li><p>参考椭球体产生的正常重力值+</p>
+</li>
+<li><p>实际地球偏离参考椭球体质量产生的重力值+</p>
+</li>
+<li><p>月亮太阳等天体引起的重力值</p>
+</li>
+</ul>
+<p>几种矫正(去除周围地形因素, 并把观测点都归结到参考椭球体上)</p>
+<ul>
+<li><p>地形</p>
+</li>
+<li><p>中间层</p>
+</li>
+<li><p>自由空气</p>
+</li>
+</ul>
+<h2 id="2026-10-10"><a href="#2026-10-10" class="headerlink" title="2026-10-10"></a>2026-10-10</h2><p>重力异常</p>
+<ul>
+<li>$\Delta g&#x3D;g_{observe}-g_{reference}$</li>
+</ul>
+<p>地质任务设计</p>
+<ol>
+<li><p>确定比例尺–&gt;点间距&#x2F;密度要求</p>
+</li>
+<li><p>测网: 对重力梯度大的地方加密测网 ;导出经纬度</p>
+</li>
+<li><p>精度要求与误差分配</p>
+</li>
+<li><p>重力控制点&#x2F;网</p>
+</li>
+<li><p>质量控制点</p>
+</li>
+</ol>
+<p>重力仪</p>
+<ol>
+<li><p>重力仪静态实验: 零点漂移&#x2F;线性度</p>
+</li>
+<li><p>重力仪动态测试: </p>
+</li>
+<li><p>重力仪一致性试验: 多台重力仪的偏差</p>
+</li>
+</ol>
+<ul>
+<li><p>重力基准点(网)</p>
+</li>
+<li><p>普通点(自己测量的点)</p>
+</li>
+<li><p>质量检查点</p>
+</li>
+</ul>
+<p>海洋重力观测</p>
+<ul>
+<li>auv rov 海洋观测网</li>
+<li>动态测量:,走航式测量,  额外记录航速&#x2F;航向&#x2F;加速度 以改正其对向心力的影响</li>
+<li>CC(交叉-耦合)效应: 相位差pi&#x2F;2</li>
+<li>厄特沃斯(厄缶)效应: 纬度&#x2F;船速相关</li>
+</ul>
+<p>重力勘探资料整理&#x2F;改正</p>
+<ol>
+<li><p>零点漂移矫正</p>
+</li>
+<li><p>基点网平差</p>
+</li>
+</ol>
+<p>内部矫正</p>
+<ol>
+<li>时漂矫正</li>
+</ol>
+<p>外部矫正</p>
+<ol>
+<li><p>陆地: 固体潮 地形 中间层 高度 纬度 </p>
+</li>
+<li><p>海洋: 厄缶 纬度 吃水 潮汐</p>
+</li>
+</ol>
+<p>岩石&#x2F;矿石 密度</p>
+<ul>
+<li>孔隙度 种类</li>
+</ul>
+<p>正演法</p>
+<ul>
+<li><p>解析法</p>
+</li>
+<li><p>有限元</p>
+</li>
+<li><p>物理试验</p>
+</li>
+</ul>
+<p>二度体</p>
+<p>三度体</p>
+<p>均匀 线性 各向异&#x2F;同</p>
+<p>半空间模型 全空间模型</p>
+<h2 id="2026-10-20"><a href="#2026-10-20" class="headerlink" title="2026-10-20"></a>2026-10-20</h2><ul>
+<li>磁法</li>
+</ul>
+<p>11.3° 磁偏角</p>
+<p>地磁场组成: </p>
+<ul>
+<li><p>基本磁场: 中心偶极子磁场, 占地磁场98%</p>
+</li>
+<li><p>变化磁场: 短期变化磁场(太阳风…),  &lt;1%</p>
+</li>
+<li><p>磁异常: 磁性岩石引起的局部异常</p>
+</li>
+</ul>
+<p>磁场强度 7 要素 :</p>
+<ol>
+<li><p>T 总强度  ~52000 nT</p>
+</li>
+<li><p>H 水平强度</p>
+</li>
+<li><p>X Y Z 北&#x2F;东&#x2F;垂直分量</p>
+</li>
+<li><p>I 磁倾角</p>
+</li>
+<li><p>D 磁偏角(angle against N direction)</p>
+</li>
+</ol>
+<p>B的的单位:</p>
+<ul>
+<li><p>1 T&#x3D; 10000Gs</p>
+</li>
+<li><p>1 Gs(高斯) &#x3D; 10^-4 T &#x3D;10 0000nT</p>
+</li>
+</ul>
+<p>变化磁场:</p>
+<ul>
+<li><p>短期: 日变</p>
+</li>
+<li><p>长期: 古地磁</p>
+</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+
+  <div class="book-tocbot"></div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" data-action="expand-toc" role="button">Expand all</a>
+  <a data-action="go-top" role="button">Back to top</a>
+  <a data-action="go-bottom" role="button">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js" defer></script>
+
+
+
+  <span class="book-mode-toggle" data-action="toggle-theme" role="button" aria-label="Toggle dark mode">
+  <span class="mode-label mode-label-night">Dark</span>
+  <span class="mode-label mode-label-day">Light</span>
+</span>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <a class="off-canvas-overlay" data-action="close-sidebar" role="button" aria-label="Close menu"></a>
+</div>
+
+</body>
+</html>

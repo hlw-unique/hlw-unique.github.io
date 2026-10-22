@@ -1,190 +1,253 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>liwang he's journals | theredbook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          theredbook - liwang he&#39;s journals
+        
+    </title>
     <meta name="description" content="welcome, hope you can get something and have fun here">
-    <meta name="keywords" content="tech thought">
-    <meta name="author" content="liwang he">
 
-    <meta name="color-scheme" content="light dark">
+    <!-- Spectre.css framework（本地 vendor，避免 CDN 失效） -->
+    <link rel="stylesheet" href="/vendor/spectre/spectre.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-exp.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-icons.min.css">
+
+    <!-- theme css -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+
+    <!-- 防止夜间模式闪烁：尽早设置 data-theme -->
+    <script>
+      (function () {
+        try {
+          var t = window.localStorage.getItem('theme');
+          if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) { /* ignore */ }
+      })();
+    </script>
+
+    <!-- tocbot（本地 vendor） -->
+    <script defer src="/vendor/tocbot/tocbot.min.js"></script>
+    <link rel="stylesheet" href="/vendor/tocbot/tocbot.css">
+
+    <!-- theme js -->
+    
+<script src="/js/book.js" defer></script>
+
+
+    <!-- MathJax 3：文章 front-matter 写 mathjax: "true" 时启用，支持 $...$ -->
+    
 
     
-    
-<link rel="stylesheet" href="/styles/index.css">
 
     
-    <link rel="shortcut icon" href="/imgs/logo.png">
+<script defer src="/vendor/zooming/zooming.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Zooming === 'undefined') return;
+    var zooming = new Zooming();
+    zooming.listen('.book-content img');
+  });
+</script>
 
-    
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
-    
-    
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
-    
 
-    
 <meta name="generator" content="Hexo 8.1.2"></head>
 
 
-<body id="delicate-app">
-    <main>
-        <div class="container">
-            <section class="page-top-badge flex-between w100">
-                <div>
-                    <a href="/">
-                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
-                    </a>
-                </div>
-                <!-- <div>
-                    
-                </div> -->
-            </section>
-            <aside class="toc-container">
-    <!-- sticky toc -->
-    
-</aside>
+<body>
 
-<article class="markdown-container">
-    <section>
-        <h1>
-            <span>
-                theredbook
-            </span>
-        
-            <div class="post-info">
-                <span></span>
-                <span>
-                    0k words • 
-                    1min(s)
-                </span>
-            </div>
-        </h1>
-    </section>
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png" alt="">
+    <span>LIWANG HE&#39;S JOURNALS</span>
+  </a>
+</div>
 
-    <section class="article">
-        <ul>
+    <div id="menu" class="book-menu hide">
+  <!--
+  这是 book 主题的左侧菜单，直接写 Markdown 即可。
+  链接写到文章的永久地址（permalink），新增文章后在这里补一行。
+-->
+
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/archives/">Archives</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/categories/">Categories</a></li>
+</ul>
+<h2 id="Posts"><a href="#Posts" class="headerlink" title="Posts"></a>Posts</h2><ul>
+<li><a href="/2026/10/19/first-hexo/">first-hexo</a></li>
+<li><a href="/2026/10/19/hello-world/">Hello World</a></li>
+<li><a href="/2026/10/20/goforBeijingRoastDuck/">go for Beijing Roast Duck</a></li>
+<li><a href="/2026/10/21/theredbook/">theredbook</a></li>
+<li><a href="/2026/10/21/2026-10-21/">2026-10-21</a></li>
+<li><a href="/2026/10/22/2026-10-22/">2026-10-22</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js" defer></script>
+
+
+  </div>
+
+  <div class="sidebar-toggle" data-action="toggle-sidebar" role="button" aria-label="Toggle sidebar">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a href="javascript:void(0)" data-action="open-sidebar" role="button" aria-label="Open menu">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          
+  <h1 class="book-post-title">theredbook</h1>
+
+<div class="book-post">
+  <ul>
 <li>2026年10月21日</li>
 <li>序言, 来者的路</li>
 </ul>
-<p>凡是实体, 皆有投射影子的能力. 那影子则依附于实体存在, 并伴随实体的消亡而消亡.</p>
-<p>时代精神让我们看到名为意义的幻象, 激励我们基于意义做出各种行动;<br>那幻象只有另一个身份能够证明, 那便是个体的深度精神.<br>它是来自远古的神秘精神, 在时代精神的笼罩下被隐蔽.<br>然而不可否认, 作为完整的自我, 黑暗面的存在是不可忽视的;<br>欲求得对黑暗面的认知, 需要深度精神的力量.</p>
+<ol>
+<li>凡是实体, 皆有投射影子的能力. 那影子则依附于实体存在, 并伴随实体的消亡而消亡.</li>
+<li>时代精神让我们看到名为意义的幻象, 激励我们基于意义做出各种行动; </li>
+<li>那幻象只有另一个身份能够证明, 那便是个体的深度精神. </li>
+<li>它是来自远古的神秘精神, 在时代精神的笼罩下被隐蔽. </li>
+<li>然而不可否认, 作为完整的自我, 黑暗面的存在是不可忽视的; </li>
+<li>欲求得对黑暗面的认知, 需要深度精神的力量.</li>
+</ol>
+<p><img src="/assets/PixPin_2026-10-21_10-58-44.png" alt="PixPin_2026-10-21_10-58-44.png"></p>
 
-    </section>
-
-    
-        <section class="post-tag">
-            <a href="/tags"><i class="fa fa-tags"></i></a>
-            
-                <a href="/tags/thought/" class="tag-item">
-                    thought
-                </a>
-            
-                <a href="/tags/philosophy/" class="tag-item">
-                    philosophy
-                </a>
-            
-                <a href="/tags/reading/" class="tag-item">
-                    reading
-                </a>
-            
-        </section>
-    
-    
-
-    <section class="post-cc">
-        <div class="post-cc-author">
-            <span class="bold">作者：</span><a href="mailto:751107781@qq.com" title="liwang he">liwang he</a>
-        </div>
-        <div class="post-cc-link">
-            <span class="bold">链接：</span><a href="/2026/10/21/theredbook/">https://hlw-unique.github.io/2026/10/21/theredbook/</a>
-        </div>
-        <div class="post-cc-source">
-            <span class="bold">来源：</span><a href="/">liwang he's journals</a>
-        </div>
-        <div class="ppost-cc-declare">
-            <span class="bold">版权声明: </span>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 许可协议。著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。 
-        </div>
-    </section>
-
-    <section class="flex-between" style="margin: 20px 0;">
-        <div class="pre">
-            
-        </div>
-        <div class="next">
-            
-                <a href="/2026/10/20/goforBeijingRoastDuck/" class="change-link">
-                    <span class="text">
-                        <span class="identify" style="text-align: right;">NEXT-></span>
-                        <span class="text-title" style="text-align: right;">go for Beijing Roast Duck</span>
-                    </span>
-                    <span class="icon"><i class="fa fa-angle-double-right"></i></span>
-                </a>
-            
-        </div>
-    </section>
-
-    <!-- comment -->
-    <section class="comment-container">
-        <!-- giscus -->
-        
-    </section>
-</article>
-
-
-
-
-            <section class="article-bottom flex-between">
-                <div class="flex-center">
-                    <img src="/imgs/logo.png" class="logo">
-                    <span>grasp time; do sth.</span>
-                </div>
-                <div class="flex-center">
-                    <a href="mailto:751107781@qq.com">
-                        <span title="envelope">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                    <a target="_blank" rel="noopener" href="https://github.com/hlw-unique">
-                        <span title="github" style="font-size: 18px;">
-                            <i class="fa fa-github" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <div class="to-top">
-    <a href="javascript: void(0)" onclick="delicate.toTop()">
-        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-    </a>
 </div>
 
-    <footer>
-        <div class="footer-info gray">
-    <div>
-        <span>Made with <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a>
-        <a target="_blank" rel="noopener" href="https://hexo.io"> | Hexo</a>
-        </span>
-    </div>
-    <div>
-        <span>Copyright 2026. All rights reserved.</span>
-    </div>
-</div>
-    </footer>
 
+  <div class="book-comments">
     
+<script src="https://giscus.app/client.js"
+        data-repo="hlw-unique/hlw-unique.github.io"
+        data-repo-id="R_kgDOVN_KjA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOVN_KjM4DI-42"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="https://hlw-unique.github.io/css/giscus-delicate.css"
+        data-lang="en-US"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 
 
-<script src="/js/index.js"></script>
 
+
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js" defer></script>
+
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="l"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>liwang he</div>
+      <div>2026-10-21</div>
+    </div>
+  </div>
+
+  
+    <div class="divider"></div>
+
+    <div class="link">
+      
+
+      <a class="tag-none-link" href="/tags/philosophy/" rel="tag">#philosophy</a> <a class="tag-none-link" href="/tags/reading/" rel="tag">#reading</a> <a class="tag-none-link" href="/tags/thought/" rel="tag">#thought</a>
+    </div>
+  
+
+  <div class="divider"></div>
+</div>
+
+  
+
+  <div class="book-tocbot"></div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" data-action="expand-toc" role="button">Expand all</a>
+  <a data-action="go-top" role="button">Back to top</a>
+  <a data-action="go-bottom" role="button">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js" defer></script>
+
+
+
+  <span class="book-mode-toggle" data-action="toggle-theme" role="button" aria-label="Toggle dark mode">
+  <span class="mode-label mode-label-night">Dark</span>
+  <span class="mode-label mode-label-day">Light</span>
+</span>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <a class="off-canvas-overlay" data-action="close-sidebar" role="button" aria-label="Close menu"></a>
+</div>
 
 </body>
-
 </html>

@@ -1,308 +1,179 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>liwang he's journals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Home - liwang he&#39;s journals
+        
+    </title>
     <meta name="description" content="welcome, hope you can get something and have fun here">
-    <meta name="keywords" content="tech thought">
-    <meta name="author" content="liwang he">
 
-    <meta name="color-scheme" content="light dark">
+    <!-- Spectre.css framework（本地 vendor，避免 CDN 失效） -->
+    <link rel="stylesheet" href="/vendor/spectre/spectre.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-exp.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-icons.min.css">
+
+    <!-- theme css -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+
+    <!-- 防止夜间模式闪烁：尽早设置 data-theme -->
+    <script>
+      (function () {
+        try {
+          var t = window.localStorage.getItem('theme');
+          if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) { /* ignore */ }
+      })();
+    </script>
+
+    <!-- tocbot（本地 vendor） -->
+    <script defer src="/vendor/tocbot/tocbot.min.js"></script>
+    <link rel="stylesheet" href="/vendor/tocbot/tocbot.css">
+
+    <!-- theme js -->
+    
+<script src="/js/book.js" defer></script>
+
+
+    <!-- MathJax 3：文章 front-matter 写 mathjax: "true" 时启用，支持 $...$ -->
+    
 
     
-    
-<link rel="stylesheet" href="/styles/index.css">
 
     
-    <link rel="shortcut icon" href="/imgs/logo.png">
+<script defer src="/vendor/zooming/zooming.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Zooming === 'undefined') return;
+    var zooming = new Zooming();
+    zooming.listen('.book-content img');
+  });
+</script>
 
-    
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
-    
-    
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
-    
 
-    
 <meta name="generator" content="Hexo 8.1.2"></head>
 
 
-<body id="delicate-app">
-    <main>
-        <div class="container">
-            <section class="page-top-badge flex-between w100">
-                <div>
-                    <a href="/">
-                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
-                    </a>
-                </div>
-                <!-- <div>
-                    
-                </div> -->
-            </section>
-            <section class="index-title">
-    <h2>liwang he's journals</h2>
-    <div class="description">welcome, hope you can get something and have fun here</h3>
-</section>
-<header>
-    <nav>
-        
-        
-            
-            <a href="/archives/">archive</a>
-        
-            
-             | <a href="/tags/">tags</a>
-        
-            
-             | <a href="/categories/">categories</a>
-        
-            
-             | <a href="/about/">about</a>
-        
-    </nav>
-</header>
-<div class="head-img">
-    <img src="/imgs/flower.jpg">
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png" alt="">
+    <span>LIWANG HE&#39;S JOURNALS</span>
+  </a>
 </div>
-<article class="index-article">
-    <div class="article-list">
-        
-            
-            
-            <div class="article-item"> 
-                <div class="article-item-title">
-                    <h1>
-                        <a href="/2026/10/21/theredbook/">
-                            theredbook
-                        </a>
-                    </h1>
-                    <div class="info">
-                        
-                        
-                            <span>
-                                2026/10/21
-                            </span>
-                        
-                    </div>
-                </div>
-                <div class="article-item-excerpt article">
-                    <div>
-                        <ul>
-<li>2026年10月21日</li>
-<li>序言, 来者的路</li>
-</ul>
-<p>凡是实体, 皆有投射影子的能力. 那影子则依附于实体存在, 并伴随实体的消亡而消亡.</p>
-<p>时代精神让我们看到名为意义的幻象, 激励我们基于意义做出各种行动;<br>那幻象只有另一个身份能够证明, 那便是个体的深度精神.<br>它是来自远古的神秘精神, 在时代精神的笼罩下被隐蔽.<br>然而不可否认, 作为完整的自我, 黑暗面的存在是不可忽视的;<br>欲求得对黑暗面的认知, 需要深度精神的力量.</p>
 
-                    </div>
-                </div>
-            </div>
+    <div id="menu" class="book-menu hide">
+  <!--
+  这是 book 主题的左侧菜单，直接写 Markdown 即可。
+  链接写到文章的永久地址（permalink），新增文章后在这里补一行。
+-->
 
-            <div style="text-align: right;">
-                <button type="button" class="read-more">
-                    <a href="/2026/10/21/theredbook/">expand</a>
-                </button>
-            </div>
-        
-            
-            
-                <hr>
-            
-            <div class="article-item"> 
-                <div class="article-item-title">
-                    <h1>
-                        <a href="/2026/10/20/goforBeijingRoastDuck/">
-                            go for Beijing Roast Duck
-                        </a>
-                    </h1>
-                    <div class="info">
-                        
-                        
-                            <span>
-                                2026/10/20
-                            </span>
-                        
-                    </div>
-                </div>
-                <div class="article-item-excerpt article">
-                    <div>
-                        <p>now it’s afternoon.and having a class.</p>
-<p>today no any classes before the noon.so i slept lately last noght.</p>
-<p>therefore comes a late wake-up this morning.</p>
-<p>i waked and just scrolled my phone for like about 30 minutes, during which i was appealed by the Roast Duck.</p>
-<p>it has been a long time since i ate it last time.so now the food is of magically attaractive shape.</p>
-<p>i couldn’t help but order one, and tackle a no-delivery option, which now looks a silly decision.</p>
-<p>when it’s about 10:30, the  NO.387 bus finally came and i started the little trip(only 4 stops before the destination).</p>
-<p>with excited feelings, i walked to the Roast Duck restaurant as fast as i can.</p>
-<p>(it’s not a restaurant, actually, which i quickly would know)</p>
-<p>shocked as i was, i still walked into the “store” with a width only allowing two people come in.</p>
-<p>instead of desks and seats for consumers’s convenience, the very scene i saw was the store owner’s baby girl playing on the climbing mat.</p>
-<p>it’s not for in-house dining.</p>
-<p>not a full-filled stomach ,but a parcel of food and an empty stomach followed me out of the house.</p>
-<p>(but the duck tasted nice still.)</p>
-
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: right;">
-                <button type="button" class="read-more">
-                    <a href="/2026/10/20/goforBeijingRoastDuck/">expand</a>
-                </button>
-            </div>
-        
-            
-            
-                <hr>
-            
-            <div class="article-item"> 
-                <div class="article-item-title">
-                    <h1>
-                        <a href="/2026/10/19/first-hexo/">
-                            first-hexo
-                        </a>
-                    </h1>
-                    <div class="info">
-                        
-                        
-                            <span>
-                                2026/10/19
-                            </span>
-                        
-                    </div>
-                </div>
-                <div class="article-item-excerpt article">
-                    <div>
-                        <h1 id="大标题"><a href="#大标题" class="headerlink" title="大标题"></a>大标题</h1><p><img src="/assets/PixPin_2026-10-19_16-47-39.png" alt="PixPin_2026-10-19_16-47-39.png"></p>
 <ul>
-<li>图片测试<br>$\alpha$<br>mathjax测试</li>
+<li><a href="/">Home</a></li>
+<li><a href="/archives/">Archives</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/categories/">Categories</a></li>
 </ul>
-<hr>
-<p>分割线</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment"># 代码块测试</span></span><br></pre></td></tr></table></figure>
+<h2 id="Posts"><a href="#Posts" class="headerlink" title="Posts"></a>Posts</h2><ul>
+<li><a href="/2026/10/19/first-hexo/">first-hexo</a></li>
+<li><a href="/2026/10/19/hello-world/">Hello World</a></li>
+<li><a href="/2026/10/20/goforBeijingRoastDuck/">go for Beijing Roast Duck</a></li>
+<li><a href="/2026/10/21/theredbook/">theredbook</a></li>
+<li><a href="/2026/10/21/2026-10-21/">2026-10-21</a></li>
+<li><a href="/2026/10/22/2026-10-22/">2026-10-22</a></li>
+</ul>
 
-<p>giscus已经开启, 测试:</p>
-<h1 id="大标题2"><a href="#大标题2" class="headerlink" title="大标题2"></a>大标题2</h1><h2 id="中title1"><a href="#中title1" class="headerlink" title="中title1"></a>中title1</h2><h1 id="3"><a href="#3" class="headerlink" title="3"></a>3</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><h4 id="111"><a href="#111" class="headerlink" title="111"></a>111</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: right;">
-                <button type="button" class="read-more">
-                    <a href="/2026/10/19/first-hexo/">expand</a>
-                </button>
-            </div>
-        
-            
-            
-                <hr>
-            
-            <div class="article-item"> 
-                <div class="article-item-title">
-                    <h1>
-                        <a href="/2026/10/19/hello-world/">
-                            Hello World
-                        </a>
-                    </h1>
-                    <div class="info">
-                        
-                        
-                            <span>
-                                2026/10/19
-                            </span>
-                        
-                    </div>
-                </div>
-                <div class="article-item-excerpt article">
-                    <div>
-                        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: right;">
-                <button type="button" class="read-more">
-                    <a href="/2026/10/19/hello-world/">expand</a>
-                </button>
-            </div>
-        
-    </div>
-
-    <div class="pagination">
-    <div class="paginator">
-        <span class="page-number current">1</span>
-    </div>
-    <div class="paginator-info">
-        <span class="gray">4 articles in total</span>
-    </div>
 </div>
-</article>
 
-            <section class="article-bottom flex-between">
-                <div class="flex-center">
-                    <img src="/imgs/logo.png" class="logo">
-                    <span>grasp time; do sth.</span>
-                </div>
-                <div class="flex-center">
-                    <a href="mailto:751107781@qq.com">
-                        <span title="envelope">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                    <a target="_blank" rel="noopener" href="https://github.com/hlw-unique">
-                        <span title="github" style="font-size: 18px;">
-                            <i class="fa fa-github" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                </div>
-            </section>
-        </div>
-    </main>
 
-    <div class="to-top">
-    <a href="javascript: void(0)" onclick="delicate.toTop()">
-        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+<script src="/js/book-menu.js" defer></script>
+
+
+  </div>
+
+  <div class="sidebar-toggle" data-action="toggle-sidebar" role="button" aria-label="Toggle sidebar">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a href="javascript:void(0)" data-action="open-sidebar" role="button" aria-label="Open menu">
+      <i class="icon icon-menu"></i>
     </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          
+<div class="book-post">
+  <h2 id="Welcome"><a href="#Welcome" class="headerlink" title="Welcome"></a>Welcome</h2><p>欢迎来到 <strong>liwang he’s journals</strong>。</p>
+<blockquote>
+<p>grasp time; do something</p>
+</blockquote>
+<p>这里记录技术、思考与生活。左侧菜单可以直接跳转到各篇文章。</p>
+
 </div>
 
-    <footer>
-        <div class="footer-info gray">
-    <div>
-        <span>Made with <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a>
-        <a target="_blank" rel="noopener" href="https://hexo.io"> | Hexo</a>
-        </span>
-    </div>
-    <div>
-        <span>Copyright 2026. All rights reserved.</span>
-    </div>
+
+
+
+<script src="/js/book-post.js" defer></script>
+
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+
+  <div class="book-tocbot"></div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" data-action="expand-toc" role="button">Expand all</a>
+  <a data-action="go-top" role="button">Back to top</a>
+  <a data-action="go-bottom" role="button">Go to bottom</a>
 </div>
-    </footer>
-
-    
 
 
-<script src="/js/index.js"></script>
+<script src="/js/book-toc.js" defer></script>
 
+
+
+  <span class="book-mode-toggle" data-action="toggle-theme" role="button" aria-label="Toggle dark mode">
+  <span class="mode-label mode-label-night">Dark</span>
+  <span class="mode-label mode-label-day">Light</span>
+</span>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <a class="off-canvas-overlay" data-action="close-sidebar" role="button" aria-label="Close menu"></a>
+</div>
 
 </body>
-
 </html>

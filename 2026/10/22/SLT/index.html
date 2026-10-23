@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          SLT - liwang he&#39;s journals
+        
+    </title>
+    <meta name="description" content="welcome,get something and have fun here">
+
+    <!-- Spectre.css framework（本地 vendor，避免 CDN 失效） -->
+    <link rel="stylesheet" href="/vendor/spectre/spectre.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-exp.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-icons.min.css">
+
+    <!-- theme css -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+
+    <!-- 防止夜间模式闪烁：尽早设置 data-theme -->
+    <script>
+      (function () {
+        try {
+          var t = window.localStorage.getItem('theme');
+          if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) { /* ignore */ }
+      })();
+    </script>
+
+    <!-- tocbot（本地 vendor） -->
+    <script defer src="/vendor/tocbot/tocbot.min.js"></script>
+    <link rel="stylesheet" href="/vendor/tocbot/tocbot.css">
+
+    <!-- theme js -->
+    
+<script src="/js/book.js" defer></script>
+
+
+    <!-- MathJax 3：支持 $...$ 与 $$...$$
+         启用条件（任一满足）：
+           1. theme.mathjax_everywhere 为 true
+           2. 页面 front-matter 写 mathjax: true
+           3. 页面位于 theme.content_dirs 目录下（且 content_dirs_mathjax 未关闭） -->
+    
+
+    
+
+    
+<script defer src="/vendor/zooming/zooming.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Zooming === 'undefined') return;
+    var zooming = new Zooming();
+    zooming.listen('.book-content img');
+  });
+</script>
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <span>LIWANG HE&#39;S JOURNALS</span>
+  </a>
+</div>
+
+    <div id="menu" class="book-menu hide">
+  <!--
+  这是 book 主题的左侧菜单，直接写 Markdown 即可。
+  链接写到文章的永久地址（permalink），新增文章后在这里补一行。
+-->
+
+<ul>
+<li><a href="/">主页</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="/notes">笔记</a></li>
+<li><a href="/misc">其他</a></li>
+</ul>
+<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><ul>
+<li><a href="mailto:&#55;&#x35;&#49;&#49;&#x30;&#x37;&#x37;&#x38;&#x31;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;">邮箱</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hlw-unique">github</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js" defer></script>
+
+
+  </div>
+
+  <div class="sidebar-toggle" data-action="toggle-sidebar" role="button" aria-label="Toggle sidebar">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a href="javascript:void(0)" data-action="open-sidebar" role="button" aria-label="Open menu">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          
+  <h1 class="book-post-title">SLT</h1>
+
+<div class="book-post">
+  <h1 id="统计学习理论概述"><a href="#统计学习理论概述" class="headerlink" title="统计学习理论概述"></a>统计学习理论概述</h1><p><strong>弗拉基米尔·N·万普尼克</strong></p>
+<p><strong>摘要</strong>——统计学习理论于20世纪60年代末被提出。直到20世纪90年代，它一直是对从给定数据集合中进行函数估计问题的纯理论分析。20世纪90年代中期，基于该理论发展出的新型学习算法（称为支持向量机）被提出。这使得统计学习理论不仅成为理论分析的工具，也成为创建用于估计多维函数的实用算法的工具。本文对统计学习理论进行了非常概括的概述，包括该理论的理论和算法两个方面。本概述的目的是展示抽象学习理论如何为泛化建立了比经典统计范式中所讨论的条件更为一般的条件，以及对这些条件的理解如何启发了函数估计问题的新算法方法。更详细的概述（不含证明）可在Vapnik（1995）中找到。在Vapnik（1998）中可以找到该理论的详细描述（包括证明）。</p>
+<h2 id="一、学习问题的设定"><a href="#一、学习问题的设定" class="headerlink" title="一、学习问题的设定"></a>一、学习问题的设定</h2><p>在本节中，我们考虑一个学习模型，并表明对该模型的分析可以在使用观测数据最小化期望损失的一般统计框架中进行。我们表明，模式识别、回归估计和密度估计等实际问题都是这个一般模型的特殊情况。</p>
+<h3 id="A-函数估计模型"><a href="#A-函数估计模型" class="headerlink" title="A. 函数估计模型"></a>A. 函数估计模型</h3><p>从样例中学习的模型可以用三个组成部分来描述：</p>
+<p>1）一个随机向量 (x) 的生成器，这些向量独立地从某个固定但未知的分布 (P(x)) 中抽取；<br>2）一个监督器，它根据条件分布函数 (P(y|x))（也是固定但未知的）为每个输入向量 (x) 返回一个输出向量 (y)；<br>3）一台学习机器，能够实现一组函数 (f(x,\alpha),\alpha \in \Lambda)。</p>
+<p>学习问题就是从给定的函数集合 (f(x,\alpha),\alpha \in \Lambda) 中选择一个能以最佳可能方式预测监督器响应的函数。选择基于一个包含 (\ell) 个随机独立同分布（i.i.d.）观测的训练集，这些观测按照 (P(x,y) &#x3D; P(x)P(y|x)) 抽取：</p>
+<p>[(x_{1},y_{1}),\dots ,(x_{\ell},y_{\ell}). \quad (1)]</p>
+<h3 id="B-风险最小化问题"><a href="#B-风险最小化问题" class="headerlink" title="B. 风险最小化问题"></a>B. 风险最小化问题</h3><p>为了选择对监督器响应的最佳可用近似，需要度量监督器对给定输入 (x) 的响应 (y) 与学习机器提供的响应 (f(x,\alpha)) 之间的损失或差异 (L(y,f(x,\alpha)))。考虑损失的期望值，即风险泛函：</p>
+<p>[R(\alpha) &#x3D; \int L(y,f(x,\alpha))dP(x,y), \quad (2)]</p>
+<p>目标是在联合概率分布 (P(x,y)) 未知且唯一可用信息包含在训练集（1）中的情况下，找到使风险泛函 (R(\alpha)) 最小化的函数 (f(x,\alpha_0))（在函数类 (f(x,\alpha),\alpha \in \Lambda) 上）。</p>
+<h3 id="C-三个主要学习问题"><a href="#C-三个主要学习问题" class="headerlink" title="C. 三个主要学习问题"></a>C. 三个主要学习问题</h3><p>学习问题的这种表述相当一般。它涵盖了许多具体问题。下面我们考虑主要的几个：模式识别、回归估计和密度估计问题。</p>
+<p><strong>模式识别问题</strong>：设监督器的输出 (y) 只取两个值 (y &#x3D; {0,1})，并设 (f(x,\alpha),\alpha \in \Lambda) 是一组指示函数（只取零和一两个值的函数）。考虑以下损失函数：</p>
+<p>[L(y,f(x,\alpha)) &#x3D; \left{ \begin{array}{ll}0 &amp; \mathrm{如果} y &#x3D; f(x,\alpha)\ 1 &amp; \mathrm{如果} y\neq f(x,\alpha). \end{array} \right. \quad (3)]</p>
+<p>对于这个损失函数，泛函（2）提供了分类错误的概率（即监督器给出的答案 (y) 与指示函数 (f(x,\alpha)) 给出的答案不同的情况）。因此，问题是在概率测度 (P(x,y)) 未知但数据（1）给定的情况下，找到使分类错误概率最小化的函数。</p>
+<p><strong>回归估计问题</strong>：设监督器的答案 (y) 为实值，并设 (f(x,\alpha),\alpha \in \Lambda) 是一组实函数，其中包含回归函数</p>
+<p>[f(x,\alpha_0) &#x3D; \int y dP(y|x).]</p>
+<p>已知如果 (f(x,\alpha)\in L_2)，则回归函数是在以下损失函数下使泛函（2）最小化的函数：</p>
+<p>[L(y,f(x,\alpha)) &#x3D; (y - f(x,\alpha))^2. \quad (4)]</p>
+<p>因此，回归估计问题就是在概率测度 (P(x,y)) 未知但数据（1）给定的情况下，用损失函数（4）最小化风险泛函（2）的问题。</p>
+<p><strong>密度估计问题</strong>：最后，考虑从密度集合 (p(x,\alpha), \alpha \in \Lambda) 中估计密度的问题。对于这个问题，我们考虑以下损失函数：</p>
+<p>[L(p(x,\alpha)) &#x3D; -\log p(x,\alpha), \quad (5)]</p>
+<p>已知期望密度在损失函数（5）下使风险泛函（2）最小化。因此，同样地，要从数据中估计密度，必须在相应概率测度 (P(x)) 未知但给定i.i.d.数据</p>
+<p>[x_{1},\dots ,x_{n}]</p>
+<p>的条件下最小化风险泛函。</p>
+<p><strong>学习问题的一般设定</strong>：学习问题的一般设定可以描述如下。设概率测度 (P(z)) 定义在空间 (Z) 上。考虑函数集合 (Q(z,\alpha), \alpha \in \Lambda)。目标是：在概率测度 (P(z)) 未知但给定i.i.d.样本</p>
+<p>[z_{1},\dots ,z_{\ell} \quad (7)]</p>
+<p>的情况下，最小化风险泛函</p>
+<p>[R(\alpha) &#x3D; \int Q(z,\alpha) dP(z), \quad \alpha \in \Lambda \quad (6)]</p>
+<p>上面考虑的学习问题都是在经验数据（7）基础上最小化风险泛函（6）这个一般问题的特殊情况，其中 (z) 描述一对 ((x,y))，而 (Q(z,\alpha)) 是特定的损失函数[例如（3）、（4）或（5）之一]。下面我们将描述对问题一般表述所获得的结果。要将其应用于具体问题，只需将相应的损失函数代入所得到的公式中。</p>
+<h3 id="D-经验风险最小化归纳原则"><a href="#D-经验风险最小化归纳原则" class="headerlink" title="D. 经验风险最小化归纳原则"></a>D. 经验风险最小化归纳原则</h3><p>为了对未知概率测度 (P(z)) 最小化风险泛函（6），通常使用以下归纳原则。</p>
+<p>期望风险泛函 (R(\alpha)) 被替换为基于训练集（7）构造的经验风险泛函</p>
+<p>[R_{\mathrm{emp}}(\alpha) &#x3D; \frac{1}{\ell}\sum_{i &#x3D; 1}^{\ell}Q(z,\alpha) \quad (8)]</p>
+<p>该原则是用使经验风险（8）最小化的函数 (Q(z,\alpha_{\ell})) 来近似使风险（6）最小化的函数 (Q(z,\alpha_0))。这个原则称为经验风险最小化归纳原则（ERM原则）。</p>
+<h3 id="E-经验风险最小化原则与经典方法"><a href="#E-经验风险最小化原则与经典方法" class="headerlink" title="E. 经验风险最小化原则与经典方法"></a>E. 经验风险最小化原则与经典方法</h3><p>ERM原则相当一般。解决特定学习问题的经典方法，如回归估计问题中的最小二乘法和密度估计问题中的最大似然法，都是ERM原则在上述特定损失函数下的实现。</p>
+<p>事实上，为了指定回归问题，引入一个 (n + 1) 维变量 (z &#x3D; (x,y) &#x3D; (x^{1},\dots ,x^{n},y)) 并使用损失函数（4）。在泛函（8）中使用这个损失函数得到泛函</p>
+<p>[R_{\mathrm{emp}}(\alpha) &#x3D; \frac{1}{\ell}\sum_{i &#x3D; 1}^{\ell}(y_{i} - f(x,\alpha))^{2}]</p>
+<p>为了找到回归估计（即最小二乘法），需要最小化该泛函。</p>
+<p>为了从给定函数集 (p(x,\alpha)) 中估计密度函数，使用损失函数（5）。将该损失函数代入（8）得到最大似然法：泛函</p>
+<p>[R_{\mathrm{emp}}(\alpha) &#x3D; -\frac{1}{\ell}\sum_{i &#x3D; 1}^{\ell}\ln p(x_{i},\alpha)]</p>
+<p>为了找到密度的近似，需要最小化该泛函。</p>
+<p>由于ERM原则是这些经典估计问题的一般表述，任何关于ERM原则的理论也适用于经典方法。</p>
+<h3 id="F-学习理论的四个部分"><a href="#F-学习理论的四个部分" class="headerlink" title="F. 学习理论的四个部分"></a>F. 学习理论的四个部分</h3><p>学习理论必须回答以下四个问题。</p>
+<p>1）ERM原则一致性的条件是什么？</p>
+<p>要回答这个问题，必须指定以下随机值序列依概率收敛的必要和充分条件。</p>
+<p>a）风险值 (R(\alpha_{\ell})) 收敛到风险的最小可能值 (R(\alpha_0)) [其中 (R(\alpha_{\ell}),\ell &#x3D; 1,2,\dots) 是函数 (Q(z,\alpha_{\ell})) 的期望风险，每个函数都最小化经验风险 (R_{\mathrm{emp}}(\alpha_{\ell}))]</p>
+<p>[R(\alpha_{\ell})\longrightarrow_{t\to \infty}^{P}R(\alpha_{0}). \quad (9)]</p>
+<p>b）所获得的经验风险值 (R_{\mathrm{emp}}(\alpha_{\ell}),i &#x3D; 1,2,\dots) 收敛到风险的最小可能值 (R(\alpha_{0}))</p>
+<p>[R_{\mathrm{emp}}(\alpha_{\ell})\longrightarrow_{t\to \infty}^{P}R(\alpha_{0}). \quad (10)]</p>
+<p>方程（9）表明使用ERM找到的解收敛到最佳可能解。方程（10）表明经验风险值收敛到最小风险值。</p>
+<p>2）最小经验风险值序列收敛到最小实际风险的速度有多快？换句话说，实现经验风险最小化原则的学习机器的泛化速率是多少？<br>3）如何控制学习机器的收敛速率（泛化速率）？<br>4）如何构造能够控制泛化速率的算法？</p>
+<p>这些问题的答案构成了学习理论的四个部分：</p>
+<p>1）学习过程一致性理论；<br>2）学习过程收敛速率的非渐近理论；<br>3）控制学习过程泛化的理论；<br>4）构造学习算法的理论。</p>
+<h2 id="二、学习过程一致性理论"><a href="#二、学习过程一致性理论" class="headerlink" title="二、学习过程一致性理论"></a>二、学习过程一致性理论</h2><p>一致性理论是一种渐近理论。它描述了随着观测数量的增加，使用所提出方法获得的解收敛到最佳可能解的必要和充分条件。问题来了：</p>
+<p>如果我们的目标是为小（有限）样本量构造算法，为什么我们需要一致性理论？</p>
+<p>答案是：</p>
+<p>我们需要一致性理论，因为它不仅提供了经验风险最小化归纳原则收敛的充分条件，还提供了必要条件。因此，任何关于经验风险最小化原则的理论都必须满足必要和充分条件。</p>
+<p>在本节中，我们介绍主要容量概念（所谓的Vapnik-Cervonenkis（VC）熵），它定义了ERM原则的泛化能力。在接下来的几节中，我们将展示非渐近学习理论基于不同类型的界，这些界在固定观测数量下评估这一概念。</p>
+<h3 id="A-学习理论的关键定理"><a href="#A-学习理论的关键定理" class="headerlink" title="A. 学习理论的关键定理"></a>A. 学习理论的关键定理</h3><p>关于基于ERM的学习过程的理论的关键定理如下[27]。</p>
+<p><strong>关键定理</strong>：设 (Q(z,\alpha),\alpha \in \Lambda) 是一组对概率测度 (P(z)) 有界损失的函数</p>
+<p>[A\leq \int Q(z,\alpha)dP(z)\leq B\qquad \forall \alpha \in \Lambda .]</p>
+<p>那么ERM原则一致的必要和充分条件是经验风险 (R_{\mathrm{emp}}(\alpha)) 在集合 (Q(z,\alpha),\alpha \in \Lambda) 上一致收敛到实际风险 (R(\alpha))，如下所示：</p>
+<p>[\lim_{\ell \to \infty}\mathrm{Prob}\left{\sup_{\alpha \in \Lambda}(R(\alpha) - R_{\mathrm{emp}}(\alpha)) &gt; \epsilon \right} &#x3D; 0,\quad \forall \epsilon . \quad (11)]</p>
+<p>这种类型的收敛称为一致单侧收敛。</p>
+<p>换句话说，根据关键定理，ERM原则一致性的条件等价于一致单侧收敛（11）存在的条件。</p>
+<p>这个定理被称为关键定理，因为它断言对ERM原则收敛性质的任何分析都必须是worst case分析。一致性的必要条件（不仅是充分条件）取决于给定函数集上最坏函数的偏差</p>
+<p>[\Delta (\alpha_{\mathrm{worst}}) &#x3D; \sup_{\alpha \in \Lambda}(R(\alpha) - R_{\mathrm{emp}}(\alpha))]</p>
+<p>是否依概率收敛到零。</p>
+<p>从这个定理可以得出，对ERM原则的分析需要对给定函数集上期望到其概率的一致收敛性质进行分析。</p>
+<h3 id="B-一致收敛的必要和充分条件"><a href="#B-一致收敛的必要和充分条件" class="headerlink" title="B. 一致收敛的必要和充分条件"></a>B. 一致收敛的必要和充分条件</h3><p>为了描述一致收敛（11）的必要和充分条件，我们引入一个称为函数集 (Q(z,\alpha),\alpha \in \Lambda) 在大小为 (\ell) 的样本上的熵的概念。</p>
+<p>我们分两步引入这个概念：首先是指示函数集，然后是实值函数集。</p>
+<p><strong>指示函数集的熵</strong>：设 (Q(z,\alpha)) (\alpha \in \Lambda) 是一组指示函数，即只取零或一的函数。考虑样本</p>
+<p>[z_{1},\dots ,z_{\ell}. \quad (12)]</p>
+<p>让我们用数量 (N^{\Lambda}(z_{1},\dots ,z_{\ell})) 来表征这组函数 (Q(z,\alpha),\alpha \in \Lambda) 在给定样本上的多样性，该数量表示使用给定指示函数集中的函数可以获得的该样本的不同划分的数量。</p>
+<p>让我们用另一种形式来写。考虑 (\ell) 维二值向量集合</p>
+<p>[q(\alpha) &#x3D; (Q(z_{1},\alpha),\dots ,Q(z_{\ell},\alpha)),\alpha \in \Lambda]</p>
+<p>当 (\alpha) 取 (\Lambda) 中的各种值时得到的。那么从几何上讲，(N^{\Lambda}(z_{1},\dots ,z_{\ell})) 是基于样本 (z_{1},\dots ,z_{\ell}) 和函数集 (Q(z,\alpha),\alpha \in \Lambda) 可以获得的 (\ell) 维立方体的不同顶点的数量。</p>
+<p>让我们称值</p>
+<p>[H^{\Lambda}(z_{1},\dots ,z_{\ell}) &#x3D; \ln N^{\Lambda}(z_{1},\dots ,z_{\ell})]</p>
+<p>为随机熵。随机熵描述了函数集在给定数据上的多样性。(H^{\Lambda}(z_{1},\dots ,z_{\ell})) 是一个随机变量，因为它是使用随机i.i.d.数据构造的。现在我们考虑随机熵在联合分布函数 (P(z_{1},\dots ,z_{\ell})) 上的期望</p>
+<p>[H^{\Lambda}(\ell) &#x3D; E\ln N^{\Lambda}(z_{1},\dots ,z_{\ell}).]</p>
+<p>我们称这个量为指示函数集 (Q(z,\alpha), \alpha \in \Lambda) 在大小为 (\ell) 的样本上的熵。它取决于函数集 (Q(z,\alpha), \alpha \in \Lambda)、概率测度 (P(z)) 和观测数量 (\ell)。熵描述了给定指示函数集在大小为 (\ell) 的样本上的期望多样性。</p>
+<p>模式识别问题一致性理论（指示函数的一致性）的主要结果是以下定理[24]。</p>
+<p><strong>定理</strong>：对于频率到其概率的一致双侧收敛³</p>
+<p>[\lim_{\ell \to \infty}\mathrm{Prob}\left{\sup_{\alpha \in \Lambda}|R(\alpha) - R_{\mathrm{emp}}(\alpha)| &gt; \epsilon \right} &#x3D; 0,\quad \forall \epsilon. \quad (13)]</p>
+<p>等式</p>
+<p>[\lim_{\ell \to \infty}\frac{H^{\Lambda}(\ell)}{\ell} &#x3D; 0, \quad \forall \epsilon &gt; 0 \quad (14)]</p>
+<p>成立是必要和充分的。</p>
+<p>稍微修改条件（14）可以得到一致单侧收敛（11）的必要和充分条件。</p>
+<p><strong>实值函数集的熵</strong>：现在我们将熵的概念推广到实值函数集。设 (A\leq Q(z,\alpha)\leq B,\alpha \in \Lambda) 是一组有界损失函数。使用这组函数和训练集（12），可以构造以下 (\ell) 维实值向量集合</p>
+<p>[q(\alpha) &#x3D; (Q(z_{1},\alpha),\dots ,Q(z_{\ell},\alpha)),\alpha \in \Lambda. \quad (15)]</p>
+<p>这个向量集合属于边长为 (B - A) 的 (\ell) 维立方体，并且在度量 (C) 中有一个有限的 (\varepsilon)-网⁴。设 (N &#x3D; N^{\Lambda}(\varepsilon;z_{1},\dots ,z_{\ell})) 是向量集合 (q(\alpha),\alpha \in \Lambda) 的最小 (\varepsilon)-网的元素数量。</p>
+<p>（随机）值 (N^{\Lambda}(\varepsilon;z_{1},\dots ,z_{\ell})) 的对数</p>
+<p>[H^{\Lambda}(\varepsilon;z_{1},\dots ,z_{\ell}) &#x3D; \ln N^{\Lambda}(\varepsilon;z_{1},\dots ,z_{\ell})]</p>
+<p>称为函数集 (A\leq Q(z,\alpha)\leq B) 在样本 (z_{1},\dots ,z_{\ell}) 上的随机VC熵⁵。随机VC熵的期望</p>
+<p>[H^{\Lambda}(\varepsilon;\ell) &#x3D; EH^{\Lambda}(\varepsilon;z_{1},\dots ,z_{\ell})]</p>
+<p>称为函数集 (A\leq Q(z,\alpha)\leq B,\alpha \in \Lambda) 在大小为 (\ell) 的样本上的VC熵。这个期望是关于乘积测度 (P(z_{1},\dots ,z_{\ell}) &#x3D; P(z_{1})\cdots P(z_{\ell})) 取的。</p>
+<p>有界损失函数集经验风险到实际风险的一致收敛理论的主要结果包括以下定理[24]。</p>
+<p><strong>定理</strong>：对于经验风险到实际风险的一致双侧收敛</p>
+<p>[\lim_{\ell \to \infty}\mathrm{Prob}\left{\sup_{\alpha \in \Lambda}|R(\alpha) - R_{\mathrm{emp}}(\alpha)| &gt; \varepsilon \right} &#x3D; 0, \quad \forall \varepsilon, \quad (16)]</p>
+<p>等式</p>
+<p>[\lim_{\ell \to \infty}\frac{H^{\Lambda}(\varepsilon,\ell)}{\ell} &#x3D; 0, \quad \forall \varepsilon &gt; 0 \quad (17)]</p>
+<p>成立是必要和充分的。</p>
+<p>稍微修改条件（17）可以得到一致单侧收敛（11）的必要和充分条件。</p>
+<p>根据关键断言，这意味着ERM原则一致性的必要和充分条件。</p>
+<h3 id="C-学习理论中的三个里程碑"><a href="#C-学习理论中的三个里程碑" class="headerlink" title="C. 学习理论中的三个里程碑"></a>C. 学习理论中的三个里程碑</h3><p>在本节中，为简单起见，我们考虑一组指示函数 (Q(z,\alpha),\alpha \in \Lambda)（即模式识别问题）。对于指示函数集获得的结果可以推广到实值函数集。</p>
+<p>在上一节中，我们引入了指示函数集的熵</p>
+<p>[H^{\Lambda}(\ell) &#x3D; E\ln N^{\Lambda}(z_{1},\dots ,z_{\ell}).]</p>
+<p>现在，我们考虑基于值 (N^{\Lambda}(z_{1},\dots ,z_{\ell})) 构造的两个新函数：退火VC熵</p>
+<p>[H_{\mathrm{ann}}^{\Lambda}(\ell) &#x3D; \ln EN^{\Lambda}(z_{1},\dots ,z_{\ell})]</p>
+<p>和增长函数</p>
+<p>[G^{\Lambda}(\ell) &#x3D; \ln \sup_{z_{1},\dots ,z_{\ell}} N^{\Lambda}(z_{1},\dots ,z_{\ell}).]</p>
+<p>这些函数的确定方式使得对于任何 (\ell) 以下不等式成立：</p>
+<p>[H^{\Lambda}(\ell) \leq H_{\mathrm{ann}}^{\Lambda}(\ell) \leq G^{\Lambda}(\ell)]</p>
+<p>基于这三个函数，构造了统计学习理论中的三个主要里程碑。</p>
+<p>在上一节中，我们引入了等式</p>
+<p>[\lim_{\ell\to\infty}\frac{H^{\Lambda}(\ell)}{\ell} &#x3D; 0]</p>
+<p>它描述了ERM原则一致性的必要和充分条件。这是学习理论中的第一个里程碑：任何最小化经验风险的机器都应满足它。</p>
+<p>然而，这个等式没有说明所获得的风险 (R(\alpha_{\ell})) 收敛到最小风险 (R(\alpha_{0})) 的速率。ERM原则可能是一致的，但具有任意慢的渐近收敛速率。</p>
+<p>问题是：</p>
+<p>在什么条件下渐近收敛速率是快的？</p>
+<p>我们说渐近收敛速率是快的，如果对于任何 (\ell &gt;\ell_0)，指数界</p>
+<p>[P{R(\alpha_{\ell}) - R(\alpha_{0}) &gt; \epsilon } &lt; c^{-c\epsilon^{2}\ell}]</p>
+<p>成立，其中 (c &gt; 0) 是某个常数。</p>
+<p>等式</p>
+<p>[\lim_{\ell \to \infty}\frac{H_{\mathrm{ann}}^{\Lambda}(\ell)}{\ell} &#x3D; 0]</p>
+<p>描述了快收敛的充分条件。这是统计学习理论中的第二个里程碑：它保证了快的渐近收敛速率。</p>
+<p>注意，描述ERM方法一致性的必要和充分条件的等式以及描述ERM方法快收敛充分条件的等式，都对于给定的概率测度 (P(z)) 成立（VC熵 (H^{\Lambda}(\ell)) 和VC退火熵 (H_{\mathrm{ann}}^{\Lambda}(\ell)) 都是使用该测度构造的）。然而，我们的目标是为解决许多不同问题（即对于许多不同的概率测度）构造学习机器。</p>
+<p>问题是：</p>
+<p>在什么条件下，ERM原则是一致的并且快速收敛的，且与概率测度无关？</p>
+<p>以下等式描述了ERM对任何概率测度一致性的必要和充分条件</p>
+<p>[\lim_{\ell \to \infty}\frac{G^{\Lambda}(\ell)}{\ell} &#x3D; 0,]</p>
+<p>这个条件对于快收敛也是充分的。</p>
+<p>这个等式是统计学习理论中的第三个里程碑。它描述了学习机器实现ERM原则具有渐近高收敛速率且与要解决的问题无关的条件。</p>
+<p>这些里程碑构成了构造学习机器收敛速率的分布无关界和严格的分布相关界的基础。</p>
+<h2 id="三、学习过程收敛速率的界"><a href="#三、学习过程收敛速率的界" class="headerlink" title="三、学习过程收敛速率的界"></a>三、学习过程收敛速率的界</h2><p>为了估计ERM方法在给定样本量下的质量，有必要获得一致收敛速率的非渐近界。</p>
+<p>使用一种称为VC维的新容量概念可以获得收敛速率的非渐近界，它允许我们获得增长函数的构造性界。</p>
+<p>VC维的概念基于增长函数 (G^{\Lambda}(\ell)) 的一个显著性质。</p>
+<h3 id="A-增长函数的结构"><a href="#A-增长函数的结构" class="headerlink" title="A. 增长函数的结构"></a>A. 增长函数的结构</h3><p><strong>定理</strong>：任何增长函数要么满足等式</p>
+<p>[G^{\Lambda}(\ell) &#x3D; \ell \ln 2]</p>
+<p>要么被以下不等式界定</p>
+<p>[G^{\Lambda}(\ell)&lt; h\left(\ln \frac{\ell}{h} +\frac{1}{h}\right)]</p>
+<p>其中 (h) 是一个整数，满足</p>
+<p>[G^{\Lambda}(h) &#x3D; h\ln 2] [G^{\Lambda}(h + 1)\neq (h + 1)\ln 2.]</p>
+<p>换句话说，增长函数要么是线性函数，要么被对数函数界定。（例如，它不可能是 (G^{\Lambda}(\ell) &#x3D; c\sqrt{\ell}) 的形式。）</p>
+<p>我们说指示函数集 (Q(z,\alpha),\alpha \in \Lambda) 的VC维是无限的，如果该函数集的增长函数是线性的。</p>
+<p>我们说指示函数集 (Q(z,\alpha),\alpha \in \Lambda) 的VC维是有限的且等于 (h)，如果增长函数被系数为 (h) 的对数函数界定。</p>
+<p>学习机器实现的指示函数集的VC维的有限性构成了ERM方法与概率测度无关的一致性的必要和充分条件。VC维的有限性也意味着快收敛。</p>
+<h3 id="B-VC维的等价定义"><a href="#B-VC维的等价定义" class="headerlink" title="B. VC维的等价定义"></a>B. VC维的等价定义</h3><p>在本节中，我们给出指示函数集VC维的等价定义，然后将这个定义推广到实值函数集。</p>
+<p><strong>指示函数集的VC维</strong>：指示函数集 (Q(z,\alpha),\alpha \in \Lambda) 的VC维是向量 (z_{1},\dots ,z_{h}) 的最大数量 (h)，这些向量可以用该函数集中的函数以所有 (2^{h}) 种可能方式分离（被该函数集打散）。如果对于任何 (n) 存在一个 (n) 个向量的集合可以被集合 (Q(z,\alpha),\alpha \in \Lambda) 打散，则VC维等于无穷大。</p>
+<p><strong>实值函数集的VC维</strong>：设 (a\leq Q(z,\alpha)\leq A,\alpha \in \Lambda) 是一组由常数 (a) 和 (A) 界定的实值函数（(a) 可以趋近于 (- \infty)，(A) 可以趋近于 (\infty)）。</p>
+<p>让我们考虑与实值函数集 (Q(z,\alpha),\alpha \in \Lambda) 一起的指示函数集</p>
+<p>[I(z,\alpha ,\beta) &#x3D; \theta {Q(z,\alpha) - \beta } ,\quad \alpha \in \Lambda \quad (18)]</p>
+<p>其中 (a&lt; \beta &lt; A) 是某个常数，(\theta (u)) 是阶跃函数。</p>
+<p>实值函数集 (Q(z,\alpha),\alpha \in \Lambda) 的VC维定义为指示函数集（18）的VC维。</p>
+<p><strong>例1</strong>：</p>
+<p>1）线性指示函数集</p>
+<p>[Q(z,\alpha) &#x3D; \theta \left{\sum_{i &#x3D; 1}^{n}\alpha_{p}z_{p} + \alpha_{0}\right}]</p>
+<p>在 (\eta) 维坐标空间 (Z &#x3D; (z_{1},\dots ,z_{n})) 中的VC维等于 (h &#x3D; n + 1)，因为使用这个函数集的函数最多可以打散 (n + 1) 个向量。这里 (\theta {\cdot }) 是阶跃函数，如果括号中的表达式为正则取值一，否则取值为零。</p>
+<p>2）线性函数集</p>
+<p>[Q(z,\alpha) &#x3D; \sum_{p &#x3D; 1}^{n}\alpha_{p}z_{p} + \alpha_{0}] [\qquad \alpha_{0},\dots ,\alpha_{n}\in (-\infty ,\infty)]</p>
+<p>在 (\eta) 维坐标空间 (Z &#x3D; (z_{1},\dots ,z_{n})) 中的VC维也等于 (h &#x3D; n + 1)，因为相应的线性指示函数的VC维等于 (n + 1)（使用 (\alpha_{0} - \beta) 代替 (\alpha_{0}) 不改变指示函数集）。</p>
+<p><strong>例2</strong>：我们称超平面</p>
+<p>[(w^{<em>}\cdot x) - b &#x3D; 0,\qquad |w^{</em>}| &#x3D; 1]</p>
+<p>为 (\Delta)-间隔分离超平面，如果它按以下方式分类向量 (x)：</p>
+<p>（落入间隔 ((- \Delta ,\Delta)) 的向量 (x) 的分类未定义）。</p>
+<p><strong>定理</strong>：设向量 (x\in X) 属于半径为 (R) 的球。那么 (\Delta)-间隔分离超平面集的VC维 (h) 由以下不等式界定</p>
+<p>[h\leq \min \left(\left[\frac{R^2}{\Delta^2}\right],n\right) + 1.]</p>
+<p>这些例子表明，一般情况下超平面集的VC维等于 (n + 1)，其中 (n) 是输入空间的维数。然而，(\Delta)-间隔分离超平面集（具有大的间隔值 (\Delta)）的VC维可以小于 (n + 1)。这一事实对于构造新的函数估计方法将起重要作用。</p>
+<h3 id="D-学习过程收敛速率的分布无关界"><a href="#D-学习过程收敛速率的分布无关界" class="headerlink" title="D. 学习过程收敛速率的分布无关界"></a>D. 学习过程收敛速率的分布无关界</h3><p>考虑具有有限VC维 (h) 的函数集。我们区分两种情况：</p>
+<p>1）损失函数集 (Q(z,\alpha),\alpha \in \Lambda) 是完全有界函数集的情况；<br>2）损失函数集 (Q(z,\alpha),\alpha \in \Lambda) 不一定是完全有界函数集的情况。</p>
+<p><strong>情况1——完全有界函数集</strong>：不失一般性，我们假设</p>
+<p>[0\leq Q(z,\alpha)\leq B,\qquad \alpha \in \Lambda . \quad (19)]</p>
+<p>完全有界函数集界理论的主要结果是以下定理[20]-[22]。</p>
+<p><strong>定理</strong>：以至少 (1 - \eta) 的概率，不等式</p>
+<p>[R(\alpha)\leq R_{\mathrm{emp}}(\alpha) + \frac{B\epsilon}{2}\left(1 + \sqrt{1 + \frac{4R_{\mathrm{emp}}(\alpha)}{B\epsilon}}\right) \quad (20)]</p>
+<p>对集合（19）的所有函数同时成立，其中</p>
+<p>[\epsilon &#x3D; 4\left(\frac{h\left(\ln\frac{2\ell}{h} + 1\right) - \ln\eta}{\ell}\right). \quad (21)]</p>
+<p>对于指示函数集，(B &#x3D; 1)。</p>
+<p>这个定理为集合（18）的所有函数[包括使经验风险（8）最小化的函数 (Q(z,\alpha_{\ell}))]提供了风险的界。这些界来自具有有限VC维的完全有界函数集的一致收敛界（13）。</p>
+<p><strong>情况2——无界函数集</strong>：考虑（非负）无界函数集 (0\leq Q(z,\alpha),\alpha \in \Lambda)。</p>
+<p>很容易证明（通过构造一个例子），在没有关于无界函数集和&#x2F;或概率测度的额外信息的情况下，不可能获得类型（20）的不等式。下面我们使用以下信息：</p>
+<p>[\sup_{\alpha \in \Lambda}\frac{\left(\int Q^{p}(z,\alpha)dP(z)\right)^{1 &#x2F; p}}{\int Q(z,\alpha)dP(z)}\leq \tau &lt; \infty \quad (22)]</p>
+<p>其中 (p &gt; 1) 是某个固定常数。⁸</p>
+<p>无界损失函数集情况的主要结果是以下定理[20]-[22]。</p>
+<p><strong>定理</strong>：以至少 (1 - \eta) 的概率，不等式</p>
+<p>[R(\alpha)\leq \frac{R_{\mathrm{emp}}(\alpha)}{(1 - a(p)\tau\sqrt{\epsilon})_{+}},\quad a(p) &#x3D; \sqrt[6]{\frac{1}{2}\left(\frac{p - 1}{p - 2}\right)^{p - 1}} \quad (23)]</p>
+<p>对集合的所有函数同时成立，其中 (\epsilon) 由（22）确定，((a)_{+} &#x3D; \max (a,0))。</p>
+<p>该定理为集合的所有函数（包括函数 (Q(z,\alpha_{\ell}))）界定了风险。</p>
+<h3 id="E-构造严格（分布相关）界的问题"><a href="#E-构造严格（分布相关）界的问题" class="headerlink" title="E. 构造严格（分布相关）界的问题"></a>E. 构造严格（分布相关）界的问题</h3><p>为了构造严格的收敛速率界，必须考虑关于概率测度的信息。设 (\mathcal{P}_0) 是所有概率测度的集合，(\mathcal{P}\subset \mathcal{P}_0) 是 (\mathcal{P}_0) 的子集。我们说如果知道包含 (P(z)) 的测度集 (\mathcal{P})，则拥有关于未知概率测度 (P(z)) 的先验信息。</p>
+<p>考虑增长函数的以下推广：</p>
+<p>[\mathcal{G}<em>{\mathcal{P}}^{\Lambda}(\epsilon ,\ell) &#x3D; \lg \sup</em>{P\in \mathcal{P}}E_{P}N^{\Lambda}(\epsilon ;z_{1},\dots ,z_{\ell}).]</p>
+<p>对于指示函数 (Q(z,\alpha),\alpha \in \Lambda) 和 (\mathcal{P} &#x3D; \mathcal{P}<em>0) 的极端情况，广义增长函数 (\mathcal{G}</em>{\mathcal{P}}^{\Lambda}(\epsilon ,\ell)) 与增长函数 (G^{\Lambda}(\ell)) 重合。对于另一个极端情况，即 (\mathcal{P}) 只包含一个函数 (P(z))，广义增长函数与退火VC熵重合。</p>
+<p>以下断言成立[20],[26]。</p>
+<p><strong>定理</strong>：假设损失函数集有界</p>
+<p>[-\inf &lt; A\leq Q(z,\alpha)\leq B&lt; \infty ,\alpha \in \Lambda ,]</p>
+<p>那么对于足够大的 (\ell)，以下不等式成立：</p>
+<p>[P\Bigg{\sup_{\alpha \in \Lambda}\Bigg|\int Q(z,\alpha)dF(z) - \frac{1}{\ell}\sum_{i &#x3D; 1}^{\ell}Q(z_i,\alpha)\Bigg| &gt; \epsilon \Bigg}] [\leq 12\exp \Bigg{\Bigg(\frac{G_{\mathcal{P}}^{\Lambda}\Lambda_{\mathrm{ann}}(\epsilon &#x2F; 6(B - A),2\ell)}{\ell}] [\qquad -\frac{\epsilon^2}{B - A} +\frac{\ln\ell}{\ell}\Bigg)\Bigg}]</p>
+<p>从这个界可以得出，对于足够大的 (\ell)，以概率 (1 - \eta) 对所有 (\alpha \in \Lambda)（包括使经验风险最小化的那个）同时以下不等式成立：</p>
+<p>[\int Q(z,\alpha)dF(z)\leq \frac{1}{\ell}\sum_{i &#x3D; 1}^{\ell}Q(z_i,\alpha)] [+\sqrt{\frac{G_{\mathcal{P}}^{\Lambda}(\epsilon &#x2F; 6(B_A),2\ell) - \ln\eta &#x2F; 12}{\ell}}.]</p>
+<p>然而，这个界是非构造性的，因为理论没有指定评估广义增长函数的方法。要使这个界具有构造性和严格性，必须对给定的损失函数集和给定的概率测度集估计广义增长函数。这是当前学习理论研究的主要课题之一。</p>
+<h2 id="四、控制学习机器泛化的理论"><a href="#四、控制学习机器泛化的理论" class="headerlink" title="四、控制学习机器泛化的理论"></a>四、控制学习机器泛化的理论</h2><p>控制学习机器泛化的理论致力于构造一个最小化风险泛函的归纳原则，该原则考虑训练集的大小（“小”样本量的归纳原则）。⁹目标是指定适合给定样本量的方法。</p>
+<h3 id="A-结构风险最小化归纳原则"><a href="#A-结构风险最小化归纳原则" class="headerlink" title="A. 结构风险最小化归纳原则"></a>A. 结构风险最小化归纳原则</h3><p>ERM原则适用于大样本量。事实上，ERM原则可以通过考虑不等式（20）来证明。当 (\ell &#x2F;h) 很大时，不等式（20）右侧的第二项变得很小。实际风险接近经验风险的值。在这种情况下，小的经验风险值提供了小的（期望）风险值。</p>
+<p>然而，如果 (\ell &#x2F;h) 很小，那么即使 (R_{\mathrm{emp}}(\alpha \ell)) 很小也不能保证风险值小。在这种情况下，最小化 (R(\alpha)) 需要一个新原则，基于同时最小化（20）中的两项，其中一项取决于经验风险的值，另一项取决于函数集的VC维。在这种情况下最小化风险，有必要找到一种方法，在最小化经验风险值的同时，控制学习机器的VC维。</p>
+<p>以下原则称为结构风险最小化（SRM）原则，旨在关于经验风险和函数集的VC维同时最小化风险泛函。</p>
+<p>设集合 (S) 的函数 (Q(z,\alpha),\alpha \in \Lambda) 具有一个结构：(S) 由嵌套的函数子集 (S_{k} &#x3D; {Q(z,\alpha),\alpha \in \Lambda_{k}}) 组成，使得</p>
+<p>[S_{1}\subset S_{2}\subset \dots \subset S_{n}\dots \qquad (24)]</p>
+<p>且 (S^{*} &#x3D; \cup_{k}S_{k})。</p>
+<p>可容许结构是满足以下三个性质的结构。</p>
+<p>1）集合 (S^{*}) 在 (S) 中处处稠密；<br>2）每个函数集 (S_{k}) 的VC维 (h_k) 有限；<br>3）结构的任何元素 (S_{k}) 包含完全有界函数 (0\leq Q(z,\alpha)\leq B_{k},\alpha \in \Lambda_{k})。</p>
+<p>SRM原则建议，对于给定的观测集 (z_{1},\dots ,z_{\ell})，选择结构元素 (S_{n})，其中 (n &#x3D; n(\ell))，并从 (S_{n}) 中选择使保证风险（20）最小的特定函数。</p>
+<p>SRM原则实际上建议在近似质量和近似函数复杂度之间进行权衡。（随着 (n) 增加，经验风险的最小值减小；然而，负责置信区间的项[（20）中的加项]增加。SRM原则考虑了这两个因素。）</p>
+<p>SRM理论的主要结果如下[9],[22]。</p>
+<p><strong>定理</strong>：对于任何分布函数，SRM方法以概率一收敛到最佳可能解。</p>
+<p>换句话说，SRM方法是普遍强一致的。</p>
+<p><strong>定理</strong>：对于可容许结构，结构风险最小化方法提供的近似 (Q(z, \alpha_{\ell}^{n(\ell)})) 使得风险序列 (R(\alpha_{\ell}^{n(\ell)})) 收敛到最佳风险 (R(\alpha_{0}))，渐近收敛速率为¹⁰</p>
+<p>[V(\ell) &#x3D; r_{n(\ell)} + B_{n(\ell)}\sqrt{\frac{h_{n(\ell)}\ln\ell}{\ell}} \quad (25)]</p>
+<p>如果法则 (n &#x3D; n(\ell)) 满足</p>
+<p>[\lim_{\ell \to \infty}\frac{B_{n(\ell)}^{2}h_{n(\ell)}\ln\ell}{\ell} &#x3D; 0. \quad (26)]</p>
+<p>在（25）中，(B_{n}) 是 (S_{n}) 中函数的界，(r_{n}(\ell)) 是近似速率</p>
+<p>[r_{n} &#x3D; \inf_{\alpha \in \Lambda_{n}}\int Q(z,\alpha)dP(z) - \inf_{\alpha \in \Lambda}\int Q(z,\alpha)dP(z).]</p>
+<h2 id="五、构造学习算法的理论"><a href="#五、构造学习算法的理论" class="headerlink" title="五、构造学习算法的理论"></a>五、构造学习算法的理论</h2><p>要在学习算法中实现SRM归纳原则，必须控制必须最小化的界（20）中存在的两个因素：</p>
+<p>1）经验风险的值；<br>2）容量因素（选择具有适当VC维值的元素 (S_{n})）。</p>
+<p>下面我们限于模式识别情况。</p>
+<p>我们考虑两种类型的学习机器：</p>
+<p>1）受大脑生物类比启发的神经网络（NN）；<br>2）受统计学习理论启发的支持向量机。</p>
+<p>我们将讨论每种相应的机器如何控制这些因素。</p>
+<h3 id="A-分离超平面方法及其推广"><a href="#A-分离超平面方法及其推广" class="headerlink" title="A. 分离超平面方法及其推广"></a>A. 分离超平面方法及其推广</h3><p>首先考虑在线性指示函数集上最小化经验风险的问题</p>
+<p>[f(x,w) &#x3D; \theta \left{\sum_{i &#x3D; 0}^{n}w_{i}x^{i}\right} ,\qquad w\in W. \quad (27)]</p>
+<p>设</p>
+<p>[(x_{1},y_{1}),\dots ,(x_{\ell},y_{\ell})]</p>
+<p>是一个训练集，其中 (x_{j} &#x3D; (x_{j}^{1},\dots ,x_{j}^{n})) 是向量，(y_{j}\in {0,1} ,j &#x3D; 1,\dots ,\ell)。</p>
+<p>为了最小化经验风险，必须找到参数 (w &#x3D; (w^{1},\dots ,w^{n}))（权重），使经验风险泛函最小化</p>
+<p>[R_{\mathrm{emp}}(w) &#x3D; \frac{1}{\ell}\sum_{j &#x3D; 1}^{\ell}(y_{j} - f(x_{j},w))^{2}. \quad (28)]</p>
+<p>有几种方法可以最小化这个泛函。当经验风险的最小值为零时，可以找到精确解；而当这个泛函的最小值非零时，可以找到近似解。因此，通过构造分离超平面可以控制经验风险的值。</p>
+<p>不幸的是，分离超平面集不够灵活，无法为许多现实问题提供低经验风险[13]。</p>
+<p>考虑了两种增加函数集灵活性的机会：</p>
+<p>1）使用更丰富的指示函数集，即线性指示函数的叠加；<br>2）将输入向量映射到高维特征空间，并在该空间中构造 (\Delta)-间隔分离超平面（见第三节C中的例2）。</p>
+<p>第一个想法对应于神经网络。第二个想法导致支持向量机。</p>
+<h3 id="B-指示函数的Sigmoid近似与神经网络"><a href="#B-指示函数的Sigmoid近似与神经网络" class="headerlink" title="B. 指示函数的Sigmoid近似与神经网络"></a>B. 指示函数的Sigmoid近似与神经网络</h3><p>为了描述NN背后的思想，让我们考虑最小化泛函（28）的方法。不可能使用常规的基于梯度的优化方法来最小化这个泛函。（指示函数 (R_{\mathrm{emp}}(w)) 的梯度要么等于零，要么未定义。）解决方案是用所谓的sigmoid函数近似指示函数集（27）</p>
+<p>[\overline{f} (x,w) &#x3D; S\left{\sum_{i &#x3D; 0}^{n}w_{i}x^{i}\right} \quad (29)]</p>
+<p>其中 (S(u)) 是光滑单调函数，使得 (S(-\infty) &#x3D; 0,S(+\infty) &#x3D; 1)。例如，函数</p>
+<p>[S_{1}(u) &#x3D; \frac{1}{1 + \exp^{-u}},\quad S_{2}(u) &#x3D; \frac{2\arctan u + \pi}{2\pi},]</p>
+<p>是sigmoid函数。</p>
+<p>对于sigmoid函数集，经验风险泛函</p>
+<p>[R_{\mathrm{emp}}(w) &#x3D; \frac{1}{\ell}\sum_{j &#x3D; 1}^{\ell}(y_{j} - \overline{f} (x_{j},w))^{2} \quad (30)]</p>
+<p>在 (w) 中是光滑的。它具有梯度 (\mathrm{grad}R_{\mathrm{emp}}(w))，因此可以使用基于梯度的方法最小化。例如，梯度下降法使用以下更新规则：</p>
+<p>[w_{\mathrm{new}} &#x3D; w_{\mathrm{old}} - \gamma (\cdot)\mathrm{grad}R_{\mathrm{emp}}(w_{\mathrm{old}})]</p>
+<p>其中数据 (\gamma (\cdot) &#x3D; \gamma (n)\geq 0) 取决于迭代次数 (n)。对于梯度下降法收敛到局部最小值，(\gamma (n)) 满足以下条件就足够了</p>
+<p>[\sum_{n &#x3D; 1}^{\infty}\gamma (n) &#x3D; \infty ,\quad \sum_{n &#x3D; 1}^{\infty}\gamma^{2}(n)&lt; \infty .]</p>
+<p>因此，想法是在估计系数阶段使用sigmoid近似，在识别阶段使用具有这些系数的指示函数。</p>
+<p>这个想法的推广导致前馈NN。为了增加学习机器决策规则集的灵活性，考虑一组函数，它们是几个线性指示函数的叠加（神经元网络）[13]，而不是线性指示函数集（单个神经元）。这个叠加中的所有指示函数都被sigmoid函数替换。</p>
+<p>一种计算NN的sigmoid近似的经验风险梯度的方法，称为反向传播方法，被发现了[15],[12]。使用这种梯度下降方法，可以确定NN所有元素的相应系数值（权重）。</p>
+<p>在20世纪90年代，已经证明NN的VC维取决于sigmoid函数的类型和NN中权重的数量。在一些一般条件下，NN的VC维是有界的（尽管它足够大）。假设VC维在NN训练过程中不变，那么NN的泛化能力取决于NN使用足够大的训练数据最小化经验风险的程度。</p>
+<p>使用反向传播方法最小化经验风险时遇到的三个主要问题如下。</p>
+<p>1）经验风险泛函有许多局部极小值。优化过程保证收敛到某个局部极小值。一般来说，使用基于梯度的过程找到的函数可能远离最佳函数。所获得近似的质量取决于许多因素，特别是算法的初始参数值。<br>2）收敛到局部极小值可能相当慢（由于权重空间的高维性）。<br>3）sigmoid函数有一个缩放因子，影响近似的质量。要选择缩放因子，必须在近似质量和收敛速率之间进行权衡。</p>
+<p>因此，经验风险的良好最小化在许多方面取决于研究者的艺术。</p>
+<h3 id="C-最优分离超平面"><a href="#C-最优分离超平面" class="headerlink" title="C. 最优分离超平面"></a>C. 最优分离超平面</h3><p>为了介绍NN的替代方法，让我们考虑最优分离超平面[25]。</p>
+<p>假设训练数据</p>
+<p>[(x_{1},y_{1}),\dots ,(x_{\ell},y_{\ell}),\qquad x\in R^{n},\quad y\in {-1, - 1}]</p>
+<p>可以被超平面分离</p>
+<p>[(w\cdot x) - b &#x3D; 0. \quad (31)]</p>
+<p>我们说这个向量集被最优超平面（或最大间隔超平面）分离，如果它被无错误地分离，并且最近向量与超平面之间的距离最大。</p>
+<p>为了描述分离超平面，让我们使用以下形式：</p>
+<p>[(w\cdot x_{i}) - b\geq 1\quad \mathrm{如果} y_{i} &#x3D; 1] [(w\cdot x_{i}) - b\leq -1\quad \mathrm{如果} y_{i} &#x3D; -1.]</p>
+<p>在下面，我们使用这些不等式的紧凑表示法：</p>
+<p>[y_{i}[w\cdot x_{i}) - b]\geq 1,\qquad i &#x3D; 1,\dots ,\ell , \quad (32)]</p>
+<p>很容易验证，最优超平面是满足条件（32）并使泛函最小化的超平面</p>
+<p>[\Phi (w) &#x3D; \textstyle {\frac{1}{2}}| w|^{2} &#x3D; \textstyle {\frac{1}{2}}(w,w), \quad (33)]</p>
+<p>（最小化是对向量 (w) 和标量 (b) 同时进行的。）</p>
+<p>这个优化问题的解由拉格朗日泛函（拉格朗日量）的鞍点给出</p>
+<p>[L(w,b,\alpha) &#x3D; \textstyle {\frac{1}{2}}(w\cdot w) - \sum_{i &#x3D; 1}^{\ell}\alpha_{i}{[x_{i}\cdot w) - b]y_{i} - 1} \quad (34)]</p>
+<p>其中 (\alpha_{i}) 是拉格朗日乘子。拉格朗日量必须关于 (w,b) 最小化，关于 (\alpha_{i}\geq 0) 最大化。</p>
+<p>在鞍点处，解 (w_{0},b_{0}) 和 (\alpha^{0}) 应满足条件</p>
+<p>[\frac{\partial L(w_{0},b_{0},\alpha^{0})}{\partial b} &#x3D; 0,\quad \frac{\partial L(w_{0},b_{0},\alpha^{0})}{\partial w} &#x3D; 0.]</p>
+<p>以显式形式重写这些方程，得到最优超平面的以下性质。</p>
+<p>1）最优超平面的系数 (\alpha_{i}^{0}) 应满足约束</p>
+<p>[\sum_{i &#x3D; 1}^{\ell}\alpha_{i}^{0}y_{i} &#x3D; 0,\qquad \alpha_{i}^{0}\geq 0,\quad i &#x3D; 1,\dots ,\ell \quad (35)]</p>
+<p>2）最优超平面的参数（向量 (w_{0})）是训练集向量的线性组合。</p>
+<p>[w_{0} &#x3D; \sum_{i &#x3D; 1}^{\ell}y_{i}\alpha_{i}^{0}x_{i},\qquad \alpha_{i}^{0}\geq 0,\quad i &#x3D; 1,\dots ,\ell \quad (36)]</p>
+<p>3）解必须满足以下Kuhn-Tucker条件：</p>
+<p>[\alpha_{i}^{0}{[x_{i}\cdot w_{0}) - b_{0}]y_{i} - 1} &#x3D; 0,\qquad i &#x3D; 1,\dots ,\ell . \quad (37)]</p>
+<p>从这些条件可以得出，在展开式（36）中只有一些训练向量，即支持向量，可以在 (w_{0}) 的展开式中具有非零系数 (\alpha_{i}^{0})。支持向量是在（36）中达到等式的向量。因此我们得到</p>
+<p>[w_{0} &#x3D; \sum_{\mathrm{支持向量}}y_{i}\alpha_{i}^{0}x_{i},\qquad \alpha_{i}^{0}\geq 0, \quad (38)]</p>
+<p>将 (w_{0}) 的表达式代回拉格朗日量并考虑Kuhn-Tucker条件，得到泛函</p>
+<p>[W(\alpha) &#x3D; \sum_{i &#x3D; 1}^{\ell}\alpha_{i} - \textstyle {\frac{1}{2}}\sum_{i,j}^{}\alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}\cdot x_{j}). \quad (39)]</p>
+<p>剩下的就是在非负象限中最大化这个泛函</p>
+<p>[\alpha_{i}\geq 0,\qquad i &#x3D; 1,\dots ,\ell]</p>
+<p>在约束下</p>
+<p>[\sum_{i &#x3D; 1}^{\ell}\alpha_{i}y_{i} &#x3D; 0. \quad (40)]</p>
+<p>将 (w_{0}) 的表达式代入（31），我们得到作为支持向量展开的超平面</p>
+<p>[\sum_{i &#x3D; 1}^{\ell}\alpha_{i}^{0}(x,x_{i}) + b_{0} &#x3D; 0 \quad (41)]</p>
+<p>为了在数据线性不可分离的情况下构造最优超平面，我们引入非负变量 (\xi_{i} \geq 0) 和泛函</p>
+<p>[\Phi (\xi) &#x3D; (w,w) + C\sum_{i &#x3D; 1}^{\ell}\xi_{i}]</p>
+<p>我们将在约束下最小化它</p>
+<p>[y_{i}((w\cdot x_{i}) - b)\geq 1 - \xi_{i},\qquad i &#x3D; 1,2,\dots ,\ell .]</p>
+<p>使用相同的拉格朗日乘子形式可以证明，最优超平面也具有支持向量展开（41）。系数 (\alpha_{i}) 可以通过在稍有不同的约束下最大化与可分离情况相同的二次型（39）来找到</p>
+<p>[\begin{array}{c}{0\leq \alpha_{i}\leq C,\qquad i &#x3D; 1,\dots ,\ell}\ {\sum_{i &#x3D; 1}^{\ell}\alpha_{i}y_{i} &#x3D; 0.} \end{array} \quad (42)]</p>
+<h3 id="D-支持向量网络"><a href="#D-支持向量网络" class="headerlink" title="D. 支持向量网络"></a>D. 支持向量网络</h3><p>支持向量网络实现以下思想[21]：通过某种先验选择的非线性映射将输入向量映射到一个非常高维的特征空间 (Z)。在这个空间中构造一个最优分离超平面。目标是创建第三节C例2中描述的情况，其中对于 (\Delta)-间隔分离超平面，VC维由比率 (R^{2} &#x2F; \Delta^{2}) 定义。为了很好地泛化，我们通过构造最优分离超平面（最大化间隔）来控制（降低）VC维。为了增加间隔，我们使用非常高维的空间。</p>
+<p><strong>例子</strong>：考虑一个允许我们在输入空间中构造决策多项式的映射。要构造二次多项式，可以创建一个特征空间 (Z)，它有 (N &#x3D; (n(n + 3) &#x2F; 2)) 个坐标，形式为</p>
+<p>[z_{1} &#x3D; x_{1},\dots ,z_{n} &#x3D; x_{n},\qquad n\mathrm{<del>个坐标</del>}] [z_{n + 1} &#x3D; x_{1}^{2},\dots ,z_{2n} &#x3D; x_{n}^{2},\qquad n\mathrm{<del>个坐标</del>}] [z_{2n + 1} &#x3D; x_{1}x_{2},\dots ,z_{N} &#x3D; x_{n}x_{n - 1},] [\qquad \frac{n(n - 1)}{2}\mathrm{<del>个坐标</del>}]</p>
+<p>其中 (x &#x3D; (x_{1},\dots ,x_{n}))。在这个空间中构造的分离超平面是输入空间中的分离二次多项式。</p>
+<p>要在 (n) 维输入空间中构造 (k) 次多项式，必须构造 (O(n^{k})) 维特征空间，然后在该空间中构造最优超平面。</p>
+<p>问题在于如何计算处理如此高维的空间：要在200维空间中构造4次或5次多项式，需要在十亿维特征空间中构造超平面。</p>
+<p>1992年，有人指出[5]，对于描述特征空间中的最优分离超平面（41）和估计分离超平面的相应展开系数（39），都使用两个向量 (z(x_{1})) 和 (z(x_{2})) 的内积，它们是输入向量 (x_{1}) 和 (x_{2}) 在特征空间中的像。因此，如果可以估计特征空间 (z(x_{1})) 和 (z(x_{2})) 中两个向量的内积作为输入空间中两个变量的函数</p>
+<p>[(z_{i}\cdot z) &#x3D; K(x,x_{i})]</p>
+<p>那么就可以构造与特征空间中最优超平面等价的解。要得到这个解，只需要将（39）和（41）中的内积 ((x_{i},x_{j})) 替换为函数 (K(x_{i},x_{k}))。</p>
+<p>换句话说，在输入空间中构造非线性决策函数</p>
+<p>[I(x) &#x3D; \operatorname {sign}\left(\sum_{\mathrm{支持向量}}\alpha_{i}K(x_{i}\cdot x) + b_{0}\right) \quad (43)]</p>
+<p>它们等价于特征空间中的线性决策函数（33）。在（43）中，系数 (\alpha_{i}) 通过求解以下方程定义</p>
+<p>[W(\alpha) &#x3D; \sum_{i &#x3D; 1}^{\ell}\alpha_{i} - \frac{1}{2}\sum_{i,j}^{k}\alpha_{i}\alpha_{j}y_{i}y_{j}K(x_{i}\cdot x_{j}) \quad (44)]</p>
+<p>在约束（42）下。</p>
+<p>1909年，Mercer证明了一个定理，它定义了Hilbert空间中内积的一般形式。</p>
+<p><strong>定理</strong>：Hilbert空间中内积的一般形式由对称正定函数 (K(x,y)) 定义，该函数满足条件</p>
+<p>[\int K(x,y)z(x)z(y)dxdy\geq 0]</p>
+<p>对所有满足不等式的函数 (z(x))，(z(y))</p>
+<p>[\int z^{2}(x)dx\leq \infty .]</p>
+<p>因此，任何满足Mercer条件的函数 (K(x,y)) 都可以用于构造规则（43），这等价于在某个特征空间中构造最优分离超平面。</p>
+<p>构造类型（43）决策函数的学习机器称为支持向量网络或支持向量机（SVM）。¹¹</p>
+<p>使用不同的内积表达式 (K(x,x_{i}))，可以构造不同类型的（在输入空间中非线性的）决策面的学习机器。</p>
+<p>例如，要指定任何固定阶 (d) 的多项式，可以使用以下函数作为相应特征空间中的内积：</p>
+<p>[K(x,x_{i}) &#x3D; ((x\cdot x_{i}) + 1)^{d}.]</p>
+<p>具有以下形式决策函数的径向基函数机器</p>
+<p>[f(x) &#x3D; \operatorname {sign}\left(\sum_{i &#x3D; 1}^{n}y_{i}\alpha_{i}\exp \left{\frac{|x - x_{i}|^{2}}{\sigma^{2}}\right}\right)]</p>
+<p>可以通过使用以下类型的函数来实现</p>
+<p>[K(x,x_{i}) &#x3D; \exp \left{-\frac{|x - x_{i}|^{2}}{\sigma^{2}}\right}.]</p>
+<p>在这种情况下，SVM机器将同时找到中心 (x_{i}) 和相应的权重 (\alpha_{i})。</p>
+<p>SVM具有一些有用的性质。</p>
+<ul>
+<li>构造SVM的优化问题有唯一解。</li>
+<li>构造SVM的学习过程相当快。</li>
+<li>在构造决策规则的同时，获得了支持向量集。</li>
+<li>实现新的决策函数集只需改变一个函数（核 (K(x_{i},x))），它定义了 (Z) 空间中的点积。</li>
+</ul>
+<h3 id="E-为什么神经网络和支持向量网络能够泛化？"><a href="#E-为什么神经网络和支持向量网络能够泛化？" class="headerlink" title="E. 为什么神经网络和支持向量网络能够泛化？"></a>E. 为什么神经网络和支持向量网络能够泛化？</h3><p>NN和支撑向量网络的泛化能力都基于控制学习过程泛化理论中描述的因素。根据这一理论，为了保证学习机器的高泛化速率，必须在决策函数集 (S &#x3D; {Q(z,\alpha),\alpha \in \Lambda }) 上构造一个结构</p>
+<p>[S_{1}\subset S_{2}\subset \dots ,\subset S]</p>
+<p>然后选择结构的适当元素 (S_{k}) 以及该元素内使界（20）最小化的函数 (Q(z,\alpha_{k}^{k})\in S_{k})。界（16）可以重写为简单形式</p>
+<p>[R(\alpha_{k}^{k})\leq R_{\mathrm{ent}}(\alpha_{k}^{k}) + \Omega \left(\frac{\ell}{h_{k}}\right) \quad (45)]</p>
+<p>其中第一项是风险的估计，第二项是该估计的置信区间。</p>
+<p>在设计NN时，确定了一组具有某个VC维 (h^{<em>}) 的可容许函数。对于给定数量的训练数据 (\ell)，值 (h^{</em>}) 决定了网络的置信区间 (\Omega (\ell &#x2F;h^{*}))。因此，选择结构的适当元素是为给定训练集设计网络的问题。</p>
+<p>在学习过程中，这个网络最小化界（45）中的第一项（训练集上的错误数）。</p>
+<p>如果在设计网络的阶段构造了一个过于复杂的网络（对于给定数量的训练数据），置信区间 (\Omega (\ell &#x2F;h^{*})) 将很大。在这种情况下，即使可以将经验风险最小化到零，测试集上的错误数量也可能很大。这种情况称为过拟合。</p>
+<p>为了避免过拟合（获得小的置信区间），必须构造具有小VC维的网络。</p>
+<p>因此，要使用NN很好地泛化，首先必须提出适当的NN架构，其次在该网络中找到使训练数据上错误数最小化的函数。对于NN，这两个问题都是使用一些启发式方法解决的（参见关于反向传播方法的评论）。</p>
+<p>在支持向量方法中，可以控制两个参数：在可分离情况下，使用具有最大间隔的 (\Delta)-间隔分离超平面（即具有最小VC维的子集）获得使经验风险最小化（至零）的唯一解。</p>
+<p>在一般情况下，当选择权衡参数 (C) 的值时，获得唯一解。</p>
+<h2 id="六、结论"><a href="#六、结论" class="headerlink" title="六、结论"></a>六、结论</h2><p>本文对统计学习理论进行了非常概括的概述。它展示了抽象分析如何让我们发现泛化的一般模型。</p>
+<p>根据这个模型，学习机器的泛化能力取决于容量概念，这些概念比仅仅空间维数或损失函数的自由参数数量（这些概念是经典泛化范式的基础）更为复杂。</p>
+<p>对泛化背后机制的新理解不仅改变了泛化的理论基础（例如，从新观点来看，奥卡姆剃刀原则并不总是正确的），而且改变了函数估计问题的算法方法。所描述的方法相当一般。它可以应用于各种函数估计问题，包括回归、密度估计、求解逆方程等。</p>
+<p>统计学习理论始于30多年前。这一理论的发展没有涉及许多研究者。在SVM成功解决现实问题之后，对统计学习理论的兴趣显著增加。抽象数学结果首次直接影响了数据分析的算法工具。在过去的三年中，出现了许多从不同角度分析推理理论和SVM方法的文章。这些包括：</p>
+<p>1）获得比本文描述的经典界更好的构造性界（这些界在精神上更接近基于增长函数的非构造性界，而不是基于VC维概念的界）。这一方向的成功尤其可能导致创建比基于最优超平面概念的SVM泛化更好的机器；<br>2）将SVM思想扩展到许多不同的函数和数据分析问题；<br>3）发展一种理论，允许我们创建具有所需性质（例如可以强制所需不变性）的核；<br>4）发展一种新型归纳推理，基于从训练集到测试集的直接泛化，避免估计函数的中间问题（转导型推理）。希望这个非常快速发展的研究领域将显著推动数据分析的所有分支。</p>
+<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><p>作者希望感谢F. Mulier的讨论以及帮助使本文更清晰易读。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] N. Alon, B-David, N. Cesa-Bianchi, and D. Haussler, “Scale-sensitive dimensions, uniform convergence, and learnability,” J. ACM, vol. 44, no. 4, pp. 617-631, 1997.<br>[2] P. L. Bartlett, P. Long, and R. C. Williamson, “Fat-shattering and the learnability of real-valued functions,” J. Comput. Syst. Sci., vol. 52, no. 3, pp. 434-452, 1996.<br>[3] P. L. Bartlett and J. Shawe-Taylor, “Generalization performance on support vector machines and other pattern classifiers,” in B. Sholkopf, C. Burges, and A. Smola, Eds., Advances in Kernel Methods-Support Vector Learning. Cambridge, MA: MIT Press, 1999.<br>[4] A. Blumer, A. Ehrenfeucht, D. Haussler, and M. K. Warmuth, “Learnability and the Vapnik-Chervonenkis dimension,” J. ACM, vol. 36, no. 4, pp. 929-965, 1989.<br>[5] B. Boser, I. Guyon, and V. N. Vapnik, “A training algorithm for optimal margin classifiers,” in Proc. 5th Annu. Wkshp. Comput. Learning Theory. Pittsburgh, PA: ACM, 1992, pp. 144-152.<br>[6] C. J. C. Burges, “Simplified support vector decision rule,” in Proc. 13th Int. Conf. Machine Learning, San Mateo, CA, 1996, pp. 71-77.<br>[7] “Geometry and invariance in kernel-based methods,” in B. Sholkopf, C. Burges, and A. Smola, Eds., Advances in Kernel Methods-Support Vector Learning. Cambridge, MA: MIT Press, 1999.<br>[8] C. Cortes and V. Vapnik, “Support vector networks,” Machine Learning, vol. 20, pp. 273-297, 1995.<br>[9] L. Devroye, L. Gyorfi, and G. Lugosi, A Probability Theory of Pattern Recognition. New York: Springer-Verlag, 1996.<br>[10] F. Girosi, “An equivalence between sparse approximation and support vector machines,” Neural Comput., vol. 10, no. 6, pp. 1455-1480, 1998.<br>[11] F. Girosi, M. Jones, and T. Poggio, “Regularization theory and neural networks architectures,” Neural Comput., vol. 7, no. 2, pp. 219-269, 1995.<br>[12] Y. Le Cun, “Learning processes in an asymmetric threshold network,” in E. Beinenstock, F. Fogelman-Soulie, and G. Weisbuch, Eds., Disordered Systems and Biological Organizations. Les Houches, France: Springer-Verlag, 1986, pp. 233-240.<br>[13] M. L. Minsky and S. A. Papert, Perceptrons. Cambridge, MA: MIT Press, 1969, p. 248.<br>[14] M. Opper, “On the annealed VC entropy for margin classifiers: A statistical mechanics study,” in B. Sholkopf, C. Burges, and A. Smola, Eds., Advances in Kernel Methods-Support Vector Learning. Cambridge, MA: MIT Press, 1999.<br>[15] D. E. Rumelhart, G. E. Hinton, and R. J. Williams, “Learning internal representations by error propagation,” in Parallel Distributed Processing: Explorations in Macrostructure of Cognition, Vol. I Cambridge, MA: Badford, 1986, pp. 318-362.<br>[16] J. Shawe-Taylor, P. L. Bartlett, R. C. Williamson, and M. Anthony, “Structural risk minimization,” IEEE Trans. Inform. Theory, 1998.<br>[17] B. Sholkopf, A. Smola, and K. R. Muller, “Nonlinear component analysis as a kernel eigenvalue problem,” Neural Comput., vol. 10, pp. 1229-1319, 1998.<br>[18] “The connection between regularization operators and support vector kernels,” Neural Networks, vol. 11, pp. 637-649, 1998.<br>[19] M. Talagrand, “The Glivenko-Cantelli problem, ten years later,” J. Theoretical Probability, vol. 9, no. 2, pp. 371-384, 1996.<br>[20] V. N. Vapnik, Estimation of Dependencies Based on Empirical Data. Moscow, Russia: Nauka, 448 pp., 1979 (in Russian). English translation, New York: Springer-Verlag, 400 pp., 1982.<br>[21] “The Nature of Statistical Learning Theory. New York: Springer-Verlag, 1995, p. 188.<br>[22] “Statistical Learning Theory. New York: Wiley, 1998, p. 736.<br>[23] V. N. Vapnik and A. Ja. Chervonenkis, “On the uniform convergence of relative frequencies of events to their probabilities,” Rep. Academy Sci. USSR, p. 181, no. 4, 1968.<br>[24] “On the uniform convergence of relative frequencies of events to their probabilities,” Theory Probab. Appl., vol. 16, pp. 264-280, 1971.<br>[25] “Theory of Pattern Recognition. Moscow, Russia: Nauka, 1974 (in Russian). German translation: W. N. Wapnik and A. Ja. Chervonenkis, “Theorie der Zeichenerkennung. Berlin, Germany: Akademia-Verlag, 353 pp., 1979.<br>[26] “Necessary and sufficient conditions for the uniform convergence of the means to their expectations,” Theory Probab. Applicat., vol. 26, pp. 532-553, 1981.<br>[27] “The necessary and sufficient conditions for consistency of the method of empirical risk minimization,” Yearbook of the Academy of Sciences of the USSR on Recognition, Classification, and Forecasting, vol. 2, pp. 217-249, Nauka Moscow, 1989 (in Russian). English translation: Pattern Recogn. and Image Analysis, vol. 1, no. 3, pp. 284-305, 1991.<br>[28] Vidyasagar, A Theory of Learning and Generalization. New York: Springer, 1997.<br>[29] Wahba, Spline Models for Observational Data, vol. 59. Philadelphia, PA: SIAM, 1990.<br>[30] R. C. Williamson, A. Smola, and B. Sholkopf, “Entropy number, operators, and support vector kernels,” in B. Sholkopf, C. Burges, and A. Smola, Eds., Advances in Kernel Methods-Support Vector Learning. Cambridge, MA: MIT Press, 1999.</p>
+<h2 id="作者简介"><a href="#作者简介" class="headerlink" title="作者简介"></a>作者简介</h2><p><strong>Vladimir N. Vapnik</strong> 出生于俄罗斯，1964年在苏联科学院控制科学研究所获得统计学博士学位。</p>
+<p>自1991年以来，他一直在AT&amp;T贝尔实验室（自1996年起为AT&amp;T Labs Research）工作，位于新泽西州Red Bank。他的研究兴趣包括统计学习理论、理论和应用统计学、求解随机不适定问题的理论和方法，以及多维函数逼近方法。他过去三年的主要成果与支持向量方法的发展有关。他发表了许多著作，包括七部关于统计学习理论各种问题的专著。</p>
+<hr>
+<p><strong>脚注：</strong></p>
+<p>³ 指示函数集 (R(\alpha)) 定义了概率，而 (R_{\mathrm{emp}}(\alpha)) 定义了频率。</p>
+<p>⁴ 向量集 (q(\alpha), \alpha \in \Lambda) 在度量 (C) 中的最小 (\varepsilon)-网 (q(\alpha_{1}), \dots, q(\alpha_{N})) 如果：1. 存在 (N &#x3D; N^{\Lambda}(\varepsilon; z_{1}, \dots, z_{\ell})) 个向量 (q(\alpha_{1}), \dots, q(\alpha_{N}))，使得对于任何向量 (q(\alpha^{<em>}), \alpha^{</em>} \in \Lambda)，可以在这些 (N) 个向量中找到其中一个 (q(\alpha_{r}))，它在（给定度量中）与这个向量 (\varepsilon)-接近。对于度量 (C)，这意味着</p>
+<p>[\rho(q(\alpha^{<em>}), q(\alpha_{r})) &#x3D; \max_{1\leq i\leq \ell}|Q(z_{i},\alpha^{</em>}) - Q(z_{i},\alpha_{r})|\leq \varepsilon.]</p>
+<p>(N) 是拥有这个性质的向量的最小数量。</p>
+<p>⁵ 注意VC熵不同于经典度量 (\varepsilon)-熵</p>
+<p>[H_{\mathrm{cl}}^{\Lambda}(\varepsilon) &#x3D; \ln N^{\Lambda}(\varepsilon)]</p>
+<p>其中 (N^{\Lambda}(\varepsilon)) 是函数集 (Q(z,\alpha), \alpha \in \Lambda) 的最小 (\varepsilon)-网的基数。</p>
+<p>⁹ 术语“小”样本量意味着样本量相对于函数集的VC维是小的。</p>
+<p>¹⁰ 这里我们假设 (n(\ell)) 是使（25）最小的结构元素数。</p>
+<p>¹¹ 在文献中，SVM方法由两个名称代表：支持向量网络（SVN）和支持向量机（SVM）。</p>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js" defer></script>
+
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure class="avatar avatar-lg">
+          <img src="/assets/avatar.jpg" >
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>liwang he</div>
+      <div>2026-10-22</div>
+    </div>
+  </div>
+
+  
+    <div class="divider"></div>
+
+    <div class="link">
+      
+
+      <a class="tag-none-link" href="/tags/academic/" rel="tag">#academic</a>
+    </div>
+  
+
+  <div class="divider"></div>
+</div>
+
+  
+
+  
+<div class="book-tocbot"></div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" data-action="expand-toc" role="button"
+     data-expand-label="展开"
+     data-collapse-label="收起">展开</a>
+  <a data-action="go-top" role="button">浮顶</a>
+  <a data-action="go-bottom" role="button">沉底</a>
+</div>
+
+
+<script src="/js/book-toc.js" defer></script>
+
+
+
+  <span class="book-mode-toggle" data-action="toggle-theme" role="button" aria-label="Toggle dark mode">
+  <span class="mode-label mode-label-night">夜晚</span>
+  <span class="mode-label mode-label-day">白昼</span>
+</span>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <a class="off-canvas-overlay" data-action="close-sidebar" role="button" aria-label="Close menu"></a>
+</div>
+
+</body>
+</html>

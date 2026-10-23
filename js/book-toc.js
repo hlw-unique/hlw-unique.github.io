@@ -21,7 +21,11 @@
     var button = document.querySelector('.book-toc-expand');
     if (!button) return;
     button.setAttribute('data-action', expanded ? 'collapse-toc' : 'expand-toc');
-    button.textContent = expanded ? 'Collapse all' : 'Expand all';
+
+    // 文案由 toc.ejs 从主题配置传入，缺省为中文
+    var expandLabel = button.getAttribute('data-expand-label') || '展开';
+    var collapseLabel = button.getAttribute('data-collapse-label') || '收起';
+    button.textContent = expanded ? collapseLabel : expandLabel;
   }
 
   function getMaxHeight() {

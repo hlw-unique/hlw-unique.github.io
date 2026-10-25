@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          CG - liwang he&#39;s journals
+        
+    </title>
+    <meta name="description" content="welcome,get something and have fun here">
+
+    <!-- Spectre.css framework（本地 vendor，避免 CDN 失效） -->
+    <link rel="stylesheet" href="/vendor/spectre/spectre.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-exp.min.css">
+    <link rel="stylesheet" href="/vendor/spectre/spectre-icons.min.css">
+
+    <!-- theme css -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+
+    <!-- 防止夜间模式闪烁：尽早设置 data-theme -->
+    <script>
+      (function () {
+        try {
+          var t = window.localStorage.getItem('theme');
+          if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) { /* ignore */ }
+      })();
+    </script>
+
+    <!-- tocbot（本地 vendor） -->
+    <script defer src="/vendor/tocbot/tocbot.min.js"></script>
+    <link rel="stylesheet" href="/vendor/tocbot/tocbot.css">
+
+    <!-- theme js -->
+    
+<script src="/js/book.js" defer></script>
+
+
+    <!-- MathJax 3：支持 $...$ 与 $$...$$
+         启用条件（任一满足）：
+           1. theme.mathjax_everywhere 为 true
+           2. 页面 front-matter 写 mathjax: true
+           3. 页面位于 theme.content_dirs 目录下（且 content_dirs_mathjax 未关闭） -->
+    
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        // 避免异步加载时因 tex 字体未就绪出现闪动
+        startup: {
+          typeset: true
+        }
+      };
+    </script>
+    <script id="MathJax-script" async
+      src="https://cdn.staticfile.org/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+    
+
+    
+
+    
+<script defer src="/vendor/zooming/zooming.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Zooming === 'undefined') return;
+    var zooming = new Zooming();
+    zooming.listen('.book-content img');
+  });
+</script>
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <span>LIWANG HE&#39;S JOURNALS</span>
+  </a>
+</div>
+
+    <div id="menu" class="book-menu hide">
+  <!--
+  这是 book 主题的左侧菜单，直接写 Markdown 即可。
+  链接写到文章的永久地址（permalink），新增文章后在这里补一行。
+-->
+
+<ul>
+<li><a href="/">主页</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="/notes">笔记</a></li>
+<li><a href="/misc">其他</a></li>
+</ul>
+<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><ul>
+<li><a href="mailto:&#x37;&#53;&#49;&#x31;&#48;&#55;&#x37;&#56;&#49;&#64;&#113;&#113;&#46;&#99;&#x6f;&#109;">邮箱</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hlw-unique">github</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js" defer></script>
+
+
+  </div>
+
+  <div class="sidebar-toggle" data-action="toggle-sidebar" role="button" aria-label="Toggle sidebar">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a href="javascript:void(0)" data-action="open-sidebar" role="button" aria-label="Open menu">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <article id="page">
+  <h1 class="book-post-title">CG</h1>
+
+  <div class="book-post">
+    <h2 id="2026-09-28"><a href="#2026-09-28" class="headerlink" title="2026-09-28"></a>2026-09-28</h2><p>CG：用电脑实现图形的表示、生成、处理、展示<br>图形: </p>
+<ol>
+<li>能在人的视觉系统中产生视觉印象的客观对象</li>
+<li>从客观世界物体中抽象出来的带有颜及形状信息的图和形</li>
+<li>包括自然景物、拍摄到的图片、用数学方法描述的图形等等</li>
+</ol>
+<p>几何要素：point line face</p>
+<p>非几何要素：texture color lighting</p>
+<p>图形表示法：点阵 参数</p>
+<ul>
+<li>光栅图形学</li>
+<li>真实感图形学</li>
+</ul>
+<p>前沿：</p>
+<ul>
+<li>粒子系统 particle system</li>
+<li>与网络技术结合 远程医疗</li>
+<li>输入设备</li>
+<li>输出设备</li>
+</ul>
+<p>CRT原理：电子枪-电磁场偏转-荧光屏(加速 聚焦 偏转)</p>
+<p>彩色CRT: 荫罩板-三色荧光屏-三个电子枪</p>
+<h2 id="2026-09-29"><a href="#2026-09-29" class="headerlink" title="2026-09-29"></a>2026-09-29</h2><p>24位真彩色：$2^{24}&#x3D;256^3$</p>
+<p>扫描方式:</p>
+<ul>
+<li>行扫描:一行</li>
+<li>场扫描:刷新率&#x2F;刷新率</li>
+</ul>
+<ol>
+<li>光栅扫描(点)</li>
+<li>随机扫描&#x2F;笔画扫描(矢量)</li>
+</ol>
+<p>平板显示器</p>
+<ul>
+<li>发射型:LED 等离子体显示器</li>
+<li>非发射型:LCD 液晶</li>
+</ul>
+<p>3D显示器…</p>
+<p>颜色查找表: 省内存</p>
+<h2 id="2026-10-12"><a href="#2026-10-12" class="headerlink" title="2026-10-12"></a>2026-10-12</h2><p>分辨率种类:<code>存储&gt;屏幕&gt;显示</code></p>
+<ol>
+<li>屏幕(物理)分辨率</li>
+<li>显示分辨率</li>
+<li>存储分辨率(大于显示分辨率)</li>
+</ol>
+<p>用户界面 user interface </p>
+<ul>
+<li>用户模型 user model</li>
+<li>GUI</li>
+<li>联机帮助 online help</li>
+<li>视觉效果设计</li>
+</ul>
+<p>逻辑输入设备:</p>
+<ul>
+<li>定位 笔画 字符 数字 选择 拾取</li>
+</ul>
+<p>输入模式</p>
+<ul>
+<li>请求方式 采样方式 事件方式  组合方式</li>
+</ul>
+<p>交互绘图技术</p>
+<ul>
+<li>网格 吸附</li>
+</ul>
+<p>3维交互技术(new: 深度)</p>
+<h3 id="图形表示与建模"><a href="#图形表示与建模" class="headerlink" title="图形表示与建模"></a>图形表示与建模</h3><p>造型技术</p>
+<ul>
+<li>规则对象(可以用欧式几何描述) -&gt; 几何模型</li>
+<li>不规则对象</li>
+</ul>
+<p>图形对象包含</p>
+<ul>
+<li>图形信息: 几何信息 拓扑信息</li>
+<li>非图形信息: 颜色 纹理…</li>
+</ul>
+<p>基本图形元素</p>
+<ul>
+<li>体 body</li>
+<li>面 face</li>
+<li>环 loop </li>
+<li>边 edge</li>
+<li>顶点 vertex</li>
+</ul>
+<p>坐标系</p>
+<ul>
+<li>建模..modeling..局部</li>
+<li>用户..world..全局&#x2F;世界</li>
+<li>观察..viewing</li>
+<li>规格化设备..normalized device</li>
+<li>设备..device</li>
+</ul>
+<p>实体: 三维空间的物体是<em><strong>内部连通的三维点集</strong></em></p>
+<ul>
+<li>刚性 维数的一致性 占据有限的体积 确定的边界 封闭性</li>
+</ul>
+<p>实体: <em><strong>正则形体+表面是2维流形</strong></em></p>
+<p>正则: 先取内点再取闭包</p>
+<p>二维流形: 取一点 其附近的区域可以等效为一个圆盘(而不是多个)</p>
+<h2 id="2026-10-19"><a href="#2026-10-19" class="headerlink" title="2026-10-19"></a>2026-10-19</h2><p>三维形体的表示:</p>
+<ul>
+<li>边界表示</li>
+<li>构造实体</li>
+<li>空间分割</li>
+</ul>
+<ol>
+<li>边界表示法:</li>
+</ol>
+<ul>
+<li>多边形网格(三角形 四边形)</li>
+<li>扫描(掠)表示</li>
+</ul>
+<ol>
+<li>构造实体几何法(CSG),<br> 求并集 交集…  表达方式不唯一,顺序不同…</li>
+</ol>
+<ul>
+<li>CSG树&#x2F;二叉树</li>
+</ul>
+<ol start="3">
+<li>空间分割</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 空间枚举: P[i][j][k]表示空间上一个点 ...三维数组</span><br></pre></td></tr></table></figure>
+<ul>
+<li>八叉树: 自适应</li>
+<li>二叉树</li>
+<li>BSP树</li>
+</ul>
+<h2 id="2026-10-25-课后作业"><a href="#2026-10-25-课后作业" class="headerlink" title="2026-10-25 课后作业"></a>2026-10-25 课后作业</h2><p>以下保留题目并简要回答：</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h2><h3 id="1-名词解释"><a href="#1-名词解释" class="headerlink" title="1.名词解释"></a>1.名词解释</h3><ul>
+<li><strong>随机扫描</strong>：电子束按需直接画到屏幕上指定位置，逐段绘制图形，不按固定行扫描。</li>
+<li><strong>光栅扫描</strong>：电子束按固定行、从左到右、从上到下逐行扫描整个屏幕，形成光栅。</li>
+<li><strong>刷新</strong>：周期性重画屏幕图像，使荧光屏上的图形保持不消失。</li>
+<li><strong>刷新频率</strong>：单位时间内屏幕图像被重画的次数，常以Hz表示。</li>
+<li><strong>图形显示子系统</strong>：计算机中负责图形生成、存储、变换和显示输出的硬件&#x2F;软件子系统。</li>
+<li><strong>显示控制器</strong>：控制显示设备工作，管理帧缓存读写、扫描同步和显示格式等的部件。</li>
+<li><strong>屏幕分辨率</strong>：屏幕上可寻址的像素列数与行数，如1024×768。</li>
+<li><strong>显示分辨率</strong>：显示设备实际能清晰显示的细节程度，受像素数、点距、刷新率等影响。</li>
+<li><strong>存储分辨率</strong>：帧缓存中可存储的像素数量，决定可表示的图像细节上限。</li>
+<li><strong>屏幕坐标系</strong>：以屏幕为参照建立的二维坐标系统，通常以像素为单位。</li>
+</ul>
+<h3 id="2-一个交互式计算机图形系统必须具有哪几种功能？其结构如何？"><a href="#2-一个交互式计算机图形系统必须具有哪几种功能？其结构如何？" class="headerlink" title="2.一个交互式计算机图形系统必须具有哪几种功能？其结构如何？"></a>2.一个交互式计算机图形系统必须具有哪几种功能？其结构如何？</h3><p>必须具有：计算与处理、存储、输入、输出显示、交互控制等功能。<br>结构一般包括：图形处理器&#x2F;CPU、存储器与帧缓存、图形输入设备、图形输出设备、显示控制器及图形软件系统，通过总线或接口连接。</p>
+<h3 id="3-试列举出你所知道的图形输入与输出设备。"><a href="#3-试列举出你所知道的图形输入与输出设备。" class="headerlink" title="3.试列举出你所知道的图形输入与输出设备。"></a>3.试列举出你所知道的图形输入与输出设备。</h3><ul>
+<li>输入设备：键盘、鼠标、光笔、数字化仪、图形板、触摸屏、扫描仪、操纵杆、轨迹球、数据手套、摄像头、语音输入设备。</li>
+<li>输出设备：显示器（CRT、LCD、LED、等离子）、投影仪、打印机、绘图仪、胶片记录仪。</li>
+</ul>
+<h3 id="4-阴极射线管由哪几部分组成？它们的功能分别是什么？"><a href="#4-阴极射线管由哪几部分组成？它们的功能分别是什么？" class="headerlink" title="4.阴极射线管由哪几部分组成？它们的功能分别是什么？"></a>4.阴极射线管由哪几部分组成？它们的功能分别是什么？</h3><p>主要由电子枪、偏转系统、荧光屏组成。  </p>
+<ul>
+<li>电子枪：发射并聚焦、加速电子束。  </li>
+<li>偏转系统：控制电子束偏转，使其打到屏幕指定位置。  </li>
+<li>荧光屏：涂有荧光粉，电子束轰击后发光显示图像。</li>
+</ul>
+<h2 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h2><h3 id="1-名词解释-1"><a href="#1-名词解释-1" class="headerlink" title="1.名词解释"></a>1.名词解释</h3><ul>
+<li><strong>直接设备</strong>：直接产生或接收图形坐标信息的设备，如鼠标、数字化仪。</li>
+<li><strong>间接设备</strong>：通过其他量间接控制图形输入的设备，如键盘输入坐标值。</li>
+<li><strong>绝对坐标设备</strong>：输入的是相对固定坐标系的绝对位置，如数字化仪。</li>
+<li><strong>相对坐标设备</strong>：输入的是相对于前一位置的位移量，如鼠标。</li>
+<li><strong>离散设备</strong>：输入量为离散值，如按键、选择开关。</li>
+<li><strong>连续设备</strong>：输入量可在一定范围内连续变化，如操纵杆、电位器。</li>
+</ul>
+<h3 id="2-什么是用户模型？设计一个好的用户接口要涉及哪些因素？"><a href="#2-什么是用户模型？设计一个好的用户接口要涉及哪些因素？" class="headerlink" title="2.什么是用户模型？设计一个好的用户接口要涉及哪些因素？"></a>2.什么是用户模型？设计一个好的用户接口要涉及哪些因素？</h3><p>用户模型是对用户特征、任务目标、操作方式和知识背景等的抽象描述。<br>设计好用户接口涉及：用户特征、任务需求、交互方式、一致性、反馈、容错性、可学习性、效率、界面布局、帮助与提示等。</p>
+<h3 id="3-PHIGS和GKS图形软件标准有哪6种逻辑输入设备？试评价这6种逻辑分类方法。"><a href="#3-PHIGS和GKS图形软件标准有哪6种逻辑输入设备？试评价这6种逻辑分类方法。" class="headerlink" title="3.PHIGS和GKS图形软件标准有哪6种逻辑输入设备？试评价这6种逻辑分类方法。"></a>3.PHIGS和GKS图形软件标准有哪6种逻辑输入设备？试评价这6种逻辑分类方法。</h3><p>6种逻辑输入设备：定位设备、笔画设备、数值设备、字符串设备、选择设备、拾取设备。<br>评价：按输入信息语义分类，便于图形软件与具体物理设备无关，具有通用性和可移植性；但某些物理设备可承担多种逻辑功能，分类较抽象，具体实现需映射。</p>
+<h3 id="4-分别说明定位、笔画、数值、字符串、选择和拾取设备可由何种物理设备采用何种交互方式实现（至少三套方案）。"><a href="#4-分别说明定位、笔画、数值、字符串、选择和拾取设备可由何种物理设备采用何种交互方式实现（至少三套方案）。" class="headerlink" title="4.分别说明定位、笔画、数值、字符串、选择和拾取设备可由何种物理设备采用何种交互方式实现（至少三套方案）。"></a>4.分别说明定位、笔画、数值、字符串、选择和拾取设备可由何种物理设备采用何种交互方式实现（至少三套方案）。</h3><ul>
+<li>定位：鼠标移动光标定位；数字化仪点取位置；触摸屏直接点按。</li>
+<li>笔画：鼠标拖动绘制；数字化仪连续描画；光笔在屏幕上画线。</li>
+<li>数值：键盘输入数值；旋钮&#x2F;电位器调节；鼠标拖动滑块。</li>
+<li>字符串：键盘输入；手写板识别；语音输入识别。</li>
+<li>选择：鼠标点击菜单；触摸屏点选按钮；功能键选择。</li>
+<li>拾取：鼠标点击图形对象；触摸屏点取对象；光笔拾取屏幕图形。</li>
+</ul>
+<h3 id="5-举例说明什么是请求方式、取样方式、事件方式、组合形式。"><a href="#5-举例说明什么是请求方式、取样方式、事件方式、组合形式。" class="headerlink" title="5.举例说明什么是请求方式、取样方式、事件方式、组合形式。"></a>5.举例说明什么是请求方式、取样方式、事件方式、组合形式。</h3><ul>
+<li><strong>请求方式</strong>：程序主动询问输入设备状态并取数，如调用函数读取鼠标当前位置。</li>
+<li><strong>取样方式</strong>：系统按固定时间间隔采样输入设备状态，如定时读取操纵杆值。</li>
+<li><strong>事件方式</strong>：输入事件发生时由系统排队或触发处理，如鼠标点击产生事件。</li>
+<li><strong>组合形式</strong>：结合请求、取样、事件等方式，如交互绘图时既响应鼠标事件又定时采样。</li>
+</ul>
+<h2 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h2><h3 id="1-名词解释-2"><a href="#1-名词解释-2" class="headerlink" title="1.名词解释"></a>1.名词解释</h3><ul>
+<li><strong>规则对象</strong>：形状可用规则数学方程或参数描述的对象。</li>
+<li><strong>不规则对象</strong>：形状不规则、难以用简单规则方程描述的对象。</li>
+<li><strong>几何造型</strong>：用计算机表示、构造和处理三维形体几何模型的方法。</li>
+<li><strong>图形信息</strong>：描述物体形状、尺寸、位置等图形几何与拓扑的信息。</li>
+<li><strong>非图形信息</strong>：颜色、材料、名称、属性等非几何形状信息。</li>
+<li><strong>几何信息</strong>：描述物体几何形状和空间位置的信息，如顶点坐标、方程。</li>
+<li><strong>拓扑信息</strong>：描述图形元素之间连接关系的信息，如邻接、包含关系。</li>
+<li><strong>建模坐标系</strong>：构造单个物体模型时使用的局部坐标系。</li>
+<li><strong>用户坐标系</strong>：用户定义和使用的世界坐标系统。</li>
+<li><strong>观察坐标系</strong>：以观察者视点建立的坐标系，用于观察变换。</li>
+<li><strong>规格化设备坐标系</strong>：与具体设备无关、范围规范化的设备坐标系统。</li>
+<li><strong>设备坐标系</strong>：具体输出设备上的坐标系统，如屏幕像素坐标。</li>
+<li><strong>正则集</strong>：等于其内部闭包的集合，即集合的边界规则、无悬边悬点，常用于实体定义。</li>
+<li><strong>二维流形</strong>：二维曲面局部同胚于平面圆盘，任意点邻域像平面片。</li>
+<li><strong>翼边结构表示</strong>：一种多面体边界表示，以边为中心记录相邻面、顶点和翼边信息。</li>
+<li><strong>多边形网格</strong>：用多边形面片集合表示物体表面的模型。</li>
+<li><strong>构造实体几何法</strong>：用基本体素通过并、交、差等布尔运算构造实体的方法。</li>
+<li><strong>空间位置枚举法</strong>：将空间划分为规则单元，枚举物体占据的单元表示实体。</li>
+<li><strong>图素</strong>：构成图形的基本元素，如点、线、面、体素等。</li>
+<li><strong>体素</strong>：构造实体的基本几何单元，如立方体、圆柱、球等。</li>
+<li><strong>段</strong>：图形系统中可独立操作的一组图形元素的集合。</li>
+<li><strong>层</strong>：将图形按逻辑分组管理的层次，便于显示、编辑和控制。</li>
+</ul>
+<h3 id="2-利用正则集的概念简述实体的定义。"><a href="#2-利用正则集的概念简述实体的定义。" class="headerlink" title="2.利用正则集的概念简述实体的定义。"></a>2.利用正则集的概念简述实体的定义。</h3><p>实体是三维空间中一个正则闭集，即该集合等于其内部闭包，且边界良好、无孤立点或悬边悬面，具有确定的内部和边界，能表示有体积的物体。</p>
+<h3 id="3-简单多边形的欧拉公式满足什么条件？复杂多面体呢？"><a href="#3-简单多边形的欧拉公式满足什么条件？复杂多面体呢？" class="headerlink" title="3.简单多边形的欧拉公式满足什么条件？复杂多面体呢？"></a>3.简单多边形的欧拉公式满足什么条件？复杂多面体呢？</h3><p>简单多边形满足：V - E + F &#x3D; 1（平面简单多边形，F通常指面数时需按具体定义调整；常见平面图形式为V-E+F&#x3D;2含外部面）。<br>复杂多面体满足广义欧拉公式：V - E + F - H &#x3D; 2(C - G)，其中V顶点数、E边数、F面数、H亏格相关项、C连通分量数、G亏格数；对简单多面体则V-E+F&#x3D;2。<br><img src="/assets/f-261025095115730.jpg" alt="f-261025095115730.jpg"></p>
+
+  </div>
+</article>
+
+
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+
+  
+<div class="book-tocbot"></div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" data-action="expand-toc" role="button"
+     data-expand-label="展开"
+     data-collapse-label="收起">展开</a>
+  <a data-action="go-top" role="button">浮顶</a>
+  <a data-action="go-bottom" role="button">沉底</a>
+</div>
+
+
+<script src="/js/book-toc.js" defer></script>
+
+
+
+  <span class="book-mode-toggle" data-action="toggle-theme" role="button" aria-label="Toggle dark mode">
+  <span class="mode-label mode-label-night">夜晚</span>
+  <span class="mode-label mode-label-day">白昼</span>
+</span>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <a class="off-canvas-overlay" data-action="close-sidebar" role="button" aria-label="Close menu"></a>
+</div>
+
+</body>
+</html>

@@ -116,7 +116,7 @@
 <li><a href="/misc">其他</a></li>
 </ul>
 <h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><ul>
-<li><a href="mailto:&#55;&#x35;&#x31;&#x31;&#48;&#x37;&#55;&#x38;&#49;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;">邮箱</a></li>
+<li><a href="mailto:&#55;&#x35;&#x31;&#x31;&#48;&#55;&#x37;&#56;&#49;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">邮箱</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/hlw-unique">github</a></li>
 </ul>
 
@@ -296,15 +296,24 @@
 <ul>
 <li>DDA（数值微分法）</li>
 <li>中点画线</li>
-<li>Ber。。。</li>
+<li>Bersenham…..</li>
 </ul>
 <p>实验报告<br>&#x2F;作业1&#x2F;姓名-学号</p>
 <blockquote>
 <p>封面：<br>要求<br>原理<br>实现过程与结果<br>体会感想</p>
 </blockquote>
-<h2 id="2026-11-02"><a href="#2026-11-02" class="headerlink" title="2026-11-02"></a>2026-11-02</h2><p>chapter5 图形的生成</p>
+<h2 id="2026-11-02"><a href="#2026-11-02" class="headerlink" title="2026-11-02"></a>2026-11-02</h2><p>chapter5 基本图形的生成算法</p>
+<p>多边形 椭圆 直线 曲线</p>
 <p>扫描转化&#x3D;光栅化</p>
-<p>雷克子波:DDA&#x2F;中点画线法</p>
+<p>两种方法绘制雷克子波:DDA&#x2F;中点Bresenham画线法</p>
+<h2 id="2026-11-09"><a href="#2026-11-09" class="headerlink" title="2026-11-09"></a>2026-11-09</h2><p>椭圆生成<br>多边形扫描转换 区域填充</p>
+<p>逐点内点判断:<br>	1. 射线法<br>	2. 累计角度法</p>
+<p>X扫描线算法:<br>	1. 求交<br>	2. 排序<br>	3. 配对<br>	4. 填充</p>
+<p>Y向连贯性算法<br>	1. 边表 排序边表</p>
+<figure class="book-mermaid pele-diagram"><svg xmlns="http://www.w3.org/2000/svg" class="pele pele-flowchart" viewBox="0 0 160 64" width="160" height="64" style="max-width:100%;height:auto;--_bg:var(--pele-bg,#fff);--_fg:var(--pele-fg,#1f1f1f);--_m:var(--pele-muted,#6e6e6e);--_l:var(--pele-line,#1f1f1f);--_s:var(--pele-surface,#f3f3f3);--_a:var(--pele-surface-alt,#e6e6e6);--_b:var(--pele-border,#8a8a8a);--_c:var(--pele-accent,#5b7bd5);color:var(--_fg);--_r:var(--pele-radius,4px);--_fm:var(--pele-font-mono,monospace);font:16px sans-serif;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;font-family:var(--pele-font,sans-serif)" fill="var(--_fg)" role="graphics-document document" aria-roledescription="flowchart"><g class="pele-edges" fill="none" stroke="var(--_l)" stroke-linecap="round"><g class="pele-edge" data-id="L_A_B_0"><path d="M56,32L97,32"/><path class="pele-marker" d="M104,32L96,35.36L96,28.64Z" fill="var(--_l)" stroke="none"/></g></g><g class="pele-nodes"><g class="pele-node pele-shape-rect" data-id="A" transform="translate(32,32)"><rect x="-24" y="-24" width="48" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"/><text class="pele-label" x="0" y="5.6" text-anchor="middle">1</text></g><g class="pele-node pele-shape-rect" data-id="B" transform="translate(128,32)"><rect x="-24" y="-24" width="48" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"/><text class="pele-label" x="0" y="5.6" text-anchor="middle">2</text></g></g></svg><details class="book-mermaid-source"><summary>图表源码</summary><pre><code class="language-mermaid">flowchart LR
+	A[1] --&gt; B[2]</code></pre></details></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;123&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a=<span class="number">1</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
   </div>
 </article>

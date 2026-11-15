@@ -116,7 +116,7 @@
 <li><a href="/misc">其他</a></li>
 </ul>
 <h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><ul>
-<li><a href="mailto:&#55;&#x35;&#x31;&#x31;&#48;&#x37;&#55;&#x38;&#49;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;">邮箱</a></li>
+<li><a href="mailto:&#55;&#x35;&#x31;&#x31;&#48;&#55;&#x37;&#56;&#49;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">邮箱</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/hlw-unique">github</a></li>
 </ul>
 
@@ -153,20 +153,75 @@
   <h1 class="book-post-title">机器学习地学</h1>
 
   <div class="book-post">
-    <h2 id="2026-10-08"><a href="#2026-10-08" class="headerlink" title="2026-10-08"></a>2026-10-08</h2><p>what&amp;when</p>
+    <h2 id="2026-11-10-REVIEW"><a href="#2026-11-10-REVIEW" class="headerlink" title="2026-11-10 REVIEW"></a>2026-11-10 REVIEW</h2><h3 id="1-overview"><a href="#1-overview" class="headerlink" title="1.overview"></a>1.overview</h3><p>Definition:Machine Learning evelopment of algorithms and statistical models that enable computers to perform specific tasks without explicit instructions.It involves the use of data to train models, allowing them to learn patterns and make predictions or decisions based on new data.Machines learn from examples.</p>
+<ul>
+<li>task:X –T–&gt; Y</li>
+<li>performance measure</li>
+<li>experience: {(X,y)}pairs</li>
+</ul>
+<p>PAC learing:<br><img src="/assets/f-261110091940987.jpg" alt="f-261110091940987.jpg" width="500"></p>
+<p>What is Machine Learning: Experience → TaskPerformer </p>
+<p><strong>use ML when:</strong></p>
+<ul>
+<li>Task is mechanical </li>
+<li>Task is difficult to program </li>
+<li>Data is available</li>
+</ul>
+<p><strong>types of ML:</strong><br>By how to pass information to the machines </p>
+<ul>
+<li>Supervised </li>
+<li>Unsupervised </li>
+<li>Semi-supervised </li>
+<li>Reinforcement<br>By how the machines compute </li>
+<li>Deep Learning </li>
+<li>“Classic” ML </li>
+<li>Neural Networks </li>
+<li>Ensemble Learning </li>
+<li>Kernel Machines<br>By “tricks” to improve learning</li>
+<li>Transfer Learning </li>
+<li>Self-supervised Learning (active learning) </li>
+<li>Multi-task Learning </li>
+<li>Multi-modal Learning </li>
+<li>Few-shot Learning </li>
+<li>Meta Learning (AutoML) </li>
+<li>Physics-informed ML</li>
+</ul>
+<p><strong>main questions in ML:</strong><br>Design Choices </p>
+<ul>
+<li>System output v.s. goal. </li>
+<li>Data v.s. prior knowledge. </li>
+<li>? in the loop. Learning<br>Techniques </li>
+<li>Express the target function f. </li>
+<li>Ensure the PAC works. </li>
+<li>Efficiency.</li>
+</ul>
+<h3 id="2-Machine-Learning-Framework"><a href="#2-Machine-Learning-Framework" class="headerlink" title="2.Machine Learning Framework"></a>2.Machine Learning Framework</h3><p><img src="/assets/f-261110093845928.jpg" alt="f-261110093845928.jpg" width="500"></p>
+<ul>
+<li>instance space</li>
+<li>lable space</li>
+<li>hypothesis space {hypothesis&#x2F;function parameters}</li>
+<li>L:<br><img src="/assets/f-261113103837690.jpg" alt="f-261113103837690.jpg" width="500"><br><img src="/assets/f-261113103912626.jpg" alt="f-261113103912626.jpg" width="500"></li>
+</ul>
+<h3 id="3-Learning-Criterion"><a href="#3-Learning-Criterion" class="headerlink" title="3.Learning Criterion"></a>3.Learning Criterion</h3><p>The criterion has two aspects: </p>
+<ul>
+<li>There is an integration over the instance space X . </li>
+<li>There is a distance measure dY in the target space Y.<br>Learning Criterion: Challenges</li>
+<li>Objective is an It’s hard to solve(难搞的) integral. (System) </li>
+<li>Objective is inherently probabilistic(固有的似然性). (System) </li>
+<li>Target function f ∗ may be observed with noise. (Data) </li>
+<li>Measure in target space may mismatch the task. (Design) </li>
+<li>Measure in target space may be difficult to optimize (non-differentiable). (Design)</li>
+</ul>
+<p>ERM: Empirical(经验) Risk Minimization<br>When dimension of feature space is high, we need exponentially more samples to cover the space. This is known as the <strong>curse of dimensionality.</strong></p>
+<h2 id="2026-10-08"><a href="#2026-10-08" class="headerlink" title="2026-10-08"></a>2026-10-08</h2><p>what&amp;when</p>
 <p>characteristic&#x2F;properties</p>
 <h2 id="2026-10-09"><a href="#2026-10-09" class="headerlink" title="2026-10-09"></a>2026-10-09</h2><ul>
-<li><p>数据</p>
-</li>
-<li><p>假设</p>
-</li>
-<li><p>评价准则</p>
-</li>
-<li><p>学习算法</p>
-</li>
+<li>数据</li>
+<li>假设</li>
+<li>评价准则</li>
+<li>学习算法</li>
 </ul>
-<h2 id="2026-10-22"><a href="#2026-10-22" class="headerlink" title="2026-10-22"></a>2026-10-22</h2><p>PACL</p>
-<p>vapnik</p>
+<h2 id="2026-10-22"><a href="#2026-10-22" class="headerlink" title="2026-10-22"></a>2026-10-22</h2><p>PACL<br>vapnik</p>
 
   </div>
 </article>
